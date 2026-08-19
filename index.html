@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICC Negocios S.A.C. | Lubricentro y Repuestos en Lima</title>
+<meta name="description" content="ICC Negocios S.A.C. — Aceites, grasas automotrices, filtros y bolsas de aire. Tienda online, cotizaciones y despacho en Lima.">
+<link rel="icon" href="assets/logo-icc.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul-profundo:#07213f;
+    --azul-oscuro:#0b3b6f;
+    --azul:#0d63ad;
+    --azul-brillante:#159de0;
+    --amarillo:#f5b400;
+    --amarillo-claro:#ffd23f;
+    --blanco:#ffffff;
+    --gris-claro:#f3f6fa;
+    --gris-linea:#e2e8f0;
+    --texto:#0f2233;
+    --texto-suave:#4a5b6d;
+    --exito:#1b8a5a;
+    --radio:14px;
+    --sombra: 0 10px 30px -12px rgba(7,33,63,.25);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--texto);
+    background:var(--blanco);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.02em; line-height:1.1;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  .wrap{max-width:1220px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--azul); font-weight:700;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:26px; height:2px; background:var(--amarillo); display:inline-block;}
+  .section{padding:76px 0;}
+  .section-head{max-width:640px; margin-bottom:40px;}
+  .section-head h2{font-size:clamp(28px,4vw,40px); margin-top:10px;}
+  .section-head p{color:var(--texto-suave); margin-top:14px; font-size:16px; line-height:1.6;}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:14px 26px; border-radius:999px; font-weight:700; font-size:14.5px;
+    letter-spacing:.02em; transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--amarillo); color:var(--azul-profundo);}
+  .btn-primary:hover{background:var(--amarillo-claro); transform:translateY(-2px); box-shadow:0 10px 20px -8px rgba(245,180,0,.6);}
+  .btn-outline{background:transparent; border:1.5px solid rgba(255,255,255,.55); color:var(--blanco);}
+  .btn-outline:hover{background:rgba(255,255,255,.12);}
+  .btn-dark{background:var(--azul-profundo); color:var(--blanco);}
+  .btn-dark:hover{background:var(--azul-oscuro); transform:translateY(-2px);}
+  .btn-ghost{background:var(--gris-claro); color:var(--azul-profundo);}
+  .btn-ghost:hover{background:var(--gris-linea);}
+  .btn-sm{padding:9px 16px; font-size:13px;}
+  .btn-wsp{background:#1fae5c; color:#fff;}
+  .btn-wsp:hover{background:#159b4f;}
+
+  /* ---------- TOPBAR ---------- */
+  .topbar{background:var(--azul-profundo); color:#cfe3f6; font-size:12.5px;}
+  .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:38px;}
+  .topbar-left{display:flex; gap:22px; align-items:center;}
+  .topbar-left span{display:flex; align-items:center; gap:6px;}
+  .topbar-right{display:flex; gap:16px; align-items:center;}
+  .topbar-right a{opacity:.85;}
+  .topbar-right a:hover{opacity:1; color:var(--amarillo-claro);}
+
+  /* ---------- HEADER ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:var(--blanco); border-bottom:1px solid var(--gris-linea);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; height:82px; gap:24px; position:relative;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{height:56px; width:56px; border-radius:50%; object-fit:cover; box-shadow:0 0 0 3px var(--amarillo);}
+  .brand-name{font-family:'Oswald',sans-serif; font-weight:700; font-size:16.5px; color:var(--azul-profundo); line-height:1.15;}
+  .brand-name small{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:11px; color:var(--texto-suave); letter-spacing:.06em; text-transform:none;}
+  .navlinks{display:flex; gap:30px; align-items:center;}
+  .navlinks a{font-size:14.5px; font-weight:600; color:var(--texto); position:relative; padding:6px 0;}
+  .navlinks a::after{content:""; position:absolute; left:0; bottom:0; height:2px; width:0; background:var(--amarillo); transition:width .2s;}
+  .navlinks a:hover::after{width:100%;}
+  .nav-actions{display:flex; align-items:center; gap:14px;}
+  .icon-btn{
+    position:relative; width:44px; height:44px; border-radius:50%; background:var(--gris-claro);
+    display:flex; align-items:center; justify-content:center; color:var(--azul-profundo);
+  }
+  .icon-btn:hover{background:var(--gris-linea);}
+  .cart-count{
+    position:absolute; top:-4px; right:-4px; background:var(--amarillo); color:var(--azul-profundo);
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:11px; min-width:19px; height:19px;
+    border-radius:50%; display:flex; align-items:center; justify-content:center; border:2px solid var(--blanco);
+  }
+  .burger{display:none; width:44px; height:44px; border-radius:50%; background:var(--gris-claro); align-items:center; justify-content:center;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; overflow:hidden; color:var(--blanco);
+    background: radial-gradient(1100px 550px at 82% -10%, #1a86d6 0%, transparent 60%), linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-oscuro) 55%, var(--azul) 100%);
+  }
+  .hero .wrap{display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center; padding-top:64px; padding-bottom:64px; position:relative; z-index:2;}
+  .hero-badge{
+    display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:7px 14px; border-radius:999px; font-size:12.5px; font-weight:600; letter-spacing:.04em; margin-bottom:22px;
+  }
+  .hero-badge b{color:var(--amarillo-claro);}
+  .hero h1{font-size:clamp(36px,5vw,58px); color:#fff;}
+  .hero h1 em{font-style:normal; color:var(--amarillo);}
+  .hero p{margin-top:20px; font-size:17px; color:#cfe3f6; max-width:520px; line-height:1.65;}
+  .hero-actions{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .hero-stats{display:flex; gap:34px; margin-top:46px; flex-wrap:wrap;}
+  .hero-stats div b{display:block; font-family:'Oswald',sans-serif; font-size:26px; color:var(--amarillo-claro);}
+  .hero-stats div span{font-size:12.5px; color:#a9c6e2;}
+
+  /* Gauge signature element */
+  .gauge-wrap{position:relative; display:flex; align-items:center; justify-content:center;}
+  .gauge{width:100%; max-width:420px; aspect-ratio:1/1; position:relative;}
+  .gauge svg{width:100%; height:100%;}
+  .gauge-label{position:absolute; bottom:14%; left:0; right:0; text-align:center;}
+  .gauge-label b{display:block; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:.14em; color:var(--amarillo-claro);}
+  .gauge-label span{font-size:12px; color:#bcd6ee;}
+  .float-card{
+    position:absolute; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(6px); border-radius:12px; padding:10px 14px; font-size:12.5px; font-weight:600;
+  }
+  .float-card.f1{top:6%; left:-6%;}
+  .float-card.f2{bottom:8%; right:-8%;}
+
+  /* ---------- MARQUEE / TRUST ---------- */
+  .trust{background:var(--gris-claro); border-bottom:1px solid var(--gris-linea);}
+  .trust .wrap{display:flex; gap:38px; padding:18px 24px; overflow-x:auto; align-items:center;}
+  .trust-item{display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700; color:var(--azul-profundo); white-space:nowrap;}
+  .trust-item svg{flex:none;}
+
+  /* ---------- BRAND MARQUEE ---------- */
+  .brands-band{background:var(--blanco); border-bottom:1px solid var(--gris-linea); padding:34px 0; overflow:hidden;}
+  .brands-head{display:flex; align-items:center; justify-content:space-between; max-width:1220px; margin:0 auto 22px; padding:0 24px;}
+  .brands-head .eyebrow{margin-bottom:0;}
+  .marquee-mask{
+    position:relative; overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track{display:flex; gap:20px; width:max-content; animation:marquee 26s linear infinite;}
+  .marquee-mask:hover .marquee-track{animation-play-state:paused;}
+  @keyframes marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .brand-chip{
+    flex:none; display:flex; align-items:center; justify-content:center; gap:0; padding:10px 18px; border-radius:16px;
+    border:1.5px solid var(--gris-linea); background:#fff; cursor:pointer; transition:.2s; min-width:160px;
+  }
+  .brand-chip:hover{border-color:var(--azul-brillante); box-shadow:var(--sombra); transform:translateY(-3px);}
+  .brand-chip.active{border-color:var(--azul); background:linear-gradient(135deg,#eef6fd,#fff);}
+  .brand-logo-slot{
+    width:120px; height:68px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    background:#fff; flex:none; overflow:hidden;
+  }
+  .brand-logo-slot img{width:100%; height:100%; object-fit:contain; padding:6px;}
+  /* brand text removed: chips now show only logo images */
+
+  /* ---------- BRAND FILTER PILLS (tienda) ---------- */
+  .filter-row{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; margin-bottom:14px;}
+  .filter-label{font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--texto-suave); text-transform:uppercase; letter-spacing:.08em; margin-right:2px;}
+  .brand-tab{
+    padding:8px 16px; border-radius:999px; background:#fff; border:1.5px solid var(--gris-linea); font-weight:700; font-size:13px;
+    color:var(--texto-suave); display:flex; align-items:center; gap:7px;
+  }
+  .brand-tab .dot{width:9px; height:9px; border-radius:50%;}
+  .brand-tab.active, .brand-tab:hover{border-color:var(--azul); color:var(--azul-profundo); background:#eef6fd;}
+
+  /* ---------- CLICKABLE CARD HINT ---------- */
+  .card{cursor:pointer;}
+  .card-actions button, .card-actions a{cursor:pointer;}
+  .view-hint{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(7,33,63,.55);
+    opacity:0; transition:.2s; color:#fff; font-weight:700; font-size:12.5px; letter-spacing:.04em; gap:8px;
+  }
+  .card:hover .view-hint{opacity:1;}
+
+  /* ---------- PROMO CLICKABLE ---------- */
+  .promo{cursor:pointer;}
+  .promo-pill{cursor:pointer;}
+  .promo-pill:hover{background:rgba(7,33,63,.16);}
+
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(5,14,26,.68); z-index:100; display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transition:.22s; padding:24px;
+  }
+  .modal-overlay.open{opacity:1; pointer-events:auto;}
+  .modal-box{
+    background:#fff; border-radius:22px; max-width:880px; width:100%; max-height:88vh; overflow-y:auto; position:relative;
+    transform:translateY(24px) scale(.98); transition:.25s; box-shadow:0 30px 60px -20px rgba(0,0,0,.4);
+  }
+  .modal-overlay.open .modal-box{transform:translateY(0) scale(1);}
+  .modal-close{
+    position:absolute; top:18px; right:18px; width:40px; height:40px; border-radius:50%; background:var(--gris-claro);
+    display:flex; align-items:center; justify-content:center; z-index:2;
+  }
+  .modal-close:hover{background:var(--gris-linea);}
+  .modal-grid{display:grid; grid-template-columns:1fr 1.15fr;}
+  .modal-media{
+    background:linear-gradient(160deg,#eef4fb,#dfeaf6); display:flex; align-items:center; justify-content:center;
+    border-radius:22px 0 0 22px; padding:40px; position:relative; min-height:320px;
+  }
+  .modal-media svg{width:44%; height:44%; color:var(--azul); opacity:.85;}
+  .modal-content{padding:38px 40px;}
+  .modal-content .card-brand{font-size:12px;}
+  .modal-content h2{font-size:22px; margin-top:8px; color:var(--azul-profundo); text-transform:none; letter-spacing:0;}
+  .modal-unit{font-size:13px; color:var(--texto-suave); margin-top:6px;}
+  .modal-price{display:flex; align-items:baseline; gap:10px; margin-top:18px;}
+  .modal-price .price-now{font-size:26px;}
+  .modal-desc{margin-top:16px; font-size:14.5px; color:var(--texto-suave); line-height:1.7;}
+  .spec-table{margin-top:20px; border-top:1px solid var(--gris-linea);}
+  .spec-row{display:flex; justify-content:space-between; padding:11px 0; border-bottom:1px solid var(--gris-linea); font-size:13.5px;}
+  .spec-row span:first-child{color:var(--texto-suave); font-weight:600;}
+  .spec-row span:last-child{font-weight:700; font-family:'JetBrains Mono',monospace; text-align:right;}
+  .modal-actions{display:flex; gap:10px; margin-top:26px;}
+  .modal-badges{display:flex; gap:8px; margin-top:14px;}
+  .mini-badge{font-size:11px; font-weight:700; padding:6px 11px; border-radius:999px; background:var(--gris-claro); color:var(--azul-profundo); display:flex; align-items:center; gap:5px;}
+  /* promo modal variant */
+  .promo-modal-head{
+    padding:34px 40px 26px; background:linear-gradient(120deg,var(--amarillo),var(--amarillo-claro)); border-radius:22px 22px 0 0;
+  }
+  .promo-modal-head .eyebrow{color:#5a4700;}
+  .promo-modal-head h2{color:var(--azul-profundo); font-size:26px; margin-top:10px; text-transform:none; letter-spacing:0;}
+  .promo-modal-layout{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:0; align-items:stretch;}
+  .promo-modal-media{
+    padding:24px; background:linear-gradient(160deg,#f7faff,#edf5ff); border-right:1px solid var(--gris-linea); display:flex; align-items:center; justify-content:center;
+  }
+  .promo-modal-media img{width:100%; height:100%; max-height:520px; object-fit:contain; object-position:center; border-radius:16px; background:#fff;}
+  .promo-modal-body{padding:30px 40px 38px;}
+  .promo-modal-body ul{list-style:none; display:flex; flex-direction:column; gap:12px; margin-top:16px;}
+  .promo-modal-body li{display:flex; gap:10px; font-size:14.5px; color:var(--texto-suave);}
+  .promo-modal-body li svg{flex:none; color:var(--exito); margin-top:3px;}
+  .promo-terms{margin-top:22px; padding-top:18px; border-top:1px solid var(--gris-linea); font-size:12.5px; color:#9aa8b3;}
+
+  @media (max-width:760px){
+    .modal-grid{grid-template-columns:1fr;}
+    .modal-media{border-radius:22px 22px 0 0; min-height:220px;}
+    .modal-content{padding:28px 24px;}
+    .promo-modal-layout{grid-template-columns:1fr;}
+    .promo-modal-media{border-right:none; border-bottom:1px solid var(--gris-linea); min-height:220px;}
+    .promo-modal-body{padding:24px 24px 28px;}
+  }
+
+  /* ---------- PROMO CAROUSEL ---------- */
+  .promo-carousel{position:relative; width:100%; overflow:hidden; background:var(--azul-profundo);}
+  .carousel-viewport{width:100%; overflow:hidden;}
+  .carousel-track{display:flex; width:100%; transition:transform .55s cubic-bezier(.4,0,.2,1);}
+  .carousel-slide{
+    flex:0 0 100%; position:relative; cursor:pointer; display:block;
+  }
+  .carousel-slide img{position:relative; width:100%; height:auto; max-height:70vh; object-fit:contain; object-position:center; display:block; margin:0 auto;}
+  .carousel-caption{
+    position:relative; z-index:2; padding:32px 48px 44px; color:#fff; max-width:640px;
+  }
+  .carousel-caption .eyebrow{color:var(--amarillo-claro);}
+  .carousel-caption h3{font-size:clamp(22px,3.4vw,36px); margin-top:10px; color:#fff;}
+  .carousel-caption p{margin-top:10px; font-size:14.5px; color:#dce8f5; max-width:480px;}
+  .carousel-caption .btn{margin-top:18px;}
+  .carousel-arrow{
+    position:absolute; top:50%; transform:translateY(-50%); width:46px; height:46px; border-radius:50%;
+    background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.35); color:#fff; display:flex;
+    align-items:center; justify-content:center; z-index:5; backdrop-filter:blur(4px);
+  }
+  .carousel-arrow:hover{background:rgba(255,255,255,.32);}
+  .carousel-arrow.left{left:20px;}
+  .carousel-arrow.right{right:20px;}
+  .carousel-dots{position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:5;}
+  .carousel-dots .dot{width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer; transition:.2s;}
+  .carousel-dots .dot.active{background:var(--amarillo); width:22px; border-radius:5px;}
+  @media (max-width:720px){
+    .carousel-slide{aspect-ratio:4/5; max-height:82vh;}
+    .carousel-caption{padding:24px 22px 34px;}
+    .carousel-arrow{width:38px; height:38px;}
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--gris-claro);}
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .test-card{background:#fff; border-radius:18px; padding:28px 26px; border:1px solid var(--gris-linea); display:flex; flex-direction:column; gap:14px;}
+  .test-stars{display:flex; gap:3px; color:var(--amarillo);}
+  .test-quote{font-size:14.5px; color:var(--texto); line-height:1.65; flex:1;}
+  .test-person{display:flex; align-items:center; gap:12px; margin-top:4px;}
+  .test-avatar{
+    width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-family:'Oswald',sans-serif; font-weight:700; color:#fff; font-size:15px; flex:none;
+  }
+  .test-person b{font-size:13.5px; display:block;}
+  .test-person span{font-size:12px; color:var(--texto-suave);}
+  .test-source{font-size:11px; font-weight:700; color:var(--texto-suave); background:var(--gris-claro); padding:4px 9px; border-radius:6px; align-self:flex-start; margin-top:2px;}
+
+  /* ---------- ORDER TRACKING ---------- */
+  .tracking{background:linear-gradient(135deg, var(--azul-profundo), var(--azul-oscuro)); color:#fff;}
+  .tracking .wrap{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+  .tracking h2{color:#fff; font-size:clamp(24px,3vw,34px);}
+  .tracking p{color:#c3d8ec; margin-top:14px; line-height:1.65; font-size:15px;}
+  .tracking-steps{display:flex; gap:18px; margin-top:26px; flex-wrap:wrap;}
+  .tstep{display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; color:#bcd6ee;}
+  .tstep .dot{width:8px; height:8px; border-radius:50%; background:var(--amarillo);}
+  .track-box{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:18px; padding:32px;}
+  .track-box .form label{color:#a9c6e2;}
+  .track-box .form input{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.2); color:#fff;}
+  .track-box .form input::placeholder{color:#7e9ab6;}
+  .track-timeline{margin-top:24px; display:flex; flex-direction:column; gap:0;}
+  .t-item{display:flex; gap:14px; position:relative; padding-bottom:26px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{content:""; position:absolute; left:11px; top:26px; bottom:0; width:2px; background:rgba(255,255,255,.18);}
+  .t-item:last-child::before{display:none;}
+  .t-dot{width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,.12); border:2px solid rgba(255,255,255,.3); display:flex; align-items:center; justify-content:center; flex:none;}
+  .t-item.done .t-dot{background:var(--amarillo); border-color:var(--amarillo); color:var(--azul-profundo);}
+  .t-item h5{font-size:13.5px; color:#fff;}
+  .t-item span{font-size:12px; color:#a9c6e2;}
+
+  /* ---------- CATEGORIES ---------- */
+  .cat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .cat-card{
+    background:var(--blanco); border:1px solid var(--gris-linea); border-radius:var(--radio); padding:26px 22px;
+    display:flex; flex-direction:column; gap:14px; transition:.2s; position:relative; overflow:hidden;
+  }
+  .cat-card:hover{transform:translateY(-5px); box-shadow:var(--sombra); border-color:transparent;}
+  .cat-icon{
+    width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,var(--azul),var(--azul-brillante)); color:#fff;
+  }
+  .cat-card h3{font-size:16.5px; color:var(--azul-profundo);}
+  .cat-card span{font-size:13px; color:var(--texto-suave);}
+  .cat-card .go{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:var(--azul); margin-top:auto;}
+
+  /* ---------- PROMO BANNER ---------- */
+  .promo{
+    background:linear-gradient(120deg, var(--amarillo) 0%, var(--amarillo-claro) 100%);
+    border-radius:20px; padding:0; overflow:hidden; position:relative;
+  }
+  .promo .wrap-inner{display:grid; grid-template-columns:1fr auto; align-items:center; gap:20px; padding:38px 44px;}
+  .promo h3{font-size:clamp(22px,3vw,32px); color:var(--azul-profundo);}
+  .promo p{color:#4a3c00; margin-top:8px; font-weight:600;}
+  .promo-strip{display:flex; gap:14px; overflow-x:auto; padding:0 4px 4px;}
+  .promo-pill{
+    flex:none; background:rgba(7,33,63,.08); color:var(--azul-profundo); font-weight:700; font-size:12.5px;
+    padding:9px 16px; border-radius:999px; font-family:'JetBrains Mono',monospace;
+  }
+
+  /* ---------- STORE PROMOTIONS ---------- */
+  .promo-store-panel{display:grid; grid-template-columns:1fr; gap:16px; margin:0 0 28px;}
+  .promo-store-card{
+    display:grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap:20px; align-items:center;
+    padding:18px; border-radius:18px; background:linear-gradient(135deg, #fff9e7, #fff);
+    border:1px solid rgba(245,180,0,.45); box-shadow:0 10px 24px -18px rgba(7,33,63,.28); overflow:hidden;
+  }
+  .promo-store-image-wrap{
+    background:linear-gradient(135deg, #f7fbff, #edf5ff); border-radius:14px; overflow:hidden; border:1px solid rgba(13,99,173,.12);
+    min-height:260px; display:flex; align-items:center; justify-content:center;
+  }
+  .promo-store-image{
+    display:block; width:100%; height:100%; max-height:360px; object-fit:contain; object-position:center; background:#fff;
+  }
+  .promo-store-card .promo-content{display:flex; flex-direction:column; gap:12px;}
+  .promo-store-card .promo-badge{
+    display:inline-flex; align-items:center; align-self:flex-start; gap:8px; padding:6px 10px; border-radius:999px; background:var(--azul-profundo); color:#fff;
+    font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; font-family:'JetBrains Mono',monospace;
+  }
+  .promo-store-card h3{font-size:clamp(22px, 2vw, 28px); color:var(--azul-profundo); text-transform:none; letter-spacing:0; line-height:1.2;}
+  .promo-store-card p{font-size:14px; color:var(--texto-suave); line-height:1.6; margin:0;}
+  .promo-store-card .promo-label{font-size:12px; font-weight:700; color:#735d00; letter-spacing:.04em; text-transform:uppercase;}
+  @media (max-width:720px){
+    .promo-store-card{grid-template-columns:1fr;}
+    .promo-store-image-wrap{min-height:200px;}
+  }
+
+  /* ---------- FILTER TABS ---------- */
+  .tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:30px;}
+  .tab{
+    padding:10px 18px; border-radius:999px; background:var(--gris-claro); font-weight:700; font-size:13.5px;
+    color:var(--texto-suave); border:1px solid transparent; transition:.15s;
+  }
+  .tab.active, .tab:hover{background:var(--azul-profundo); color:#fff;}
+
+  /* ---------- PRODUCT GRID ---------- */
+  .prod-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .card{
+    border:1px solid var(--gris-linea); border-radius:var(--radio); overflow:hidden; background:#fff;
+    display:flex; flex-direction:column; transition:.2s;
+  }
+  .card:hover{box-shadow:var(--sombra); transform:translateY(-4px); border-color:transparent;}
+  .card-media{
+    aspect-ratio:1/.9; position:relative; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(160deg,#eef4fb,#dfeaf6);
+  }
+  .prod-image-slot{width:100%; height:100%; background-size:contain; background-position:center; background-repeat:no-repeat;}
+  .modal-media .prod-image-slot{background-size:contain; max-width:100%; height:100%;}
+  .card-media svg{width:44%; height:44%; color:var(--azul); opacity:.85;}
+  .badge{
+    position:absolute; top:10px; left:10px; background:var(--azul-profundo); color:#fff; font-size:11px; font-weight:700;
+    padding:5px 10px; border-radius:999px; font-family:'JetBrains Mono',monospace;
+  }
+  .badge.oferta{background:#d64545;}
+  .badge.nuevo{background:var(--exito);}
+  .card-body{padding:16px 16px 18px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .card-brand{font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--azul); text-transform:uppercase;}
+  .card-title{font-size:14.5px; font-weight:700; color:var(--texto); line-height:1.35; min-height:38px;}
+  .card-meta{font-size:12px; color:var(--texto-suave);}
+  .card-price{display:flex; align-items:baseline; gap:8px; margin-top:auto; padding-top:8px;}
+  .price-now{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:19px; color:var(--azul-profundo);}
+  .price-old{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:#a7b3bd; text-decoration:line-through;}
+  .card-actions{display:flex; gap:8px; margin-top:10px;}
+  .add-btn{
+    flex:1; background:var(--azul-profundo); color:#fff; border-radius:10px; padding:10px 12px; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center; gap:6px; transition:.15s;
+  }
+  .add-btn:hover{background:var(--azul);}
+  .quote-btn{
+    width:42px; border-radius:10px; background:var(--gris-claro); display:flex; align-items:center; justify-content:center; color:var(--azul-profundo);
+  }
+  .quote-btn:hover{background:var(--gris-linea);}
+  .center-cta{text-align:center; margin-top:40px;}
+
+  /* ---------- WHY US ---------- */
+  .why-band{background:var(--azul-profundo); color:#fff; position:relative; overflow:hidden;}
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .why-item{padding:26px 4px; border-left:2px solid rgba(255,255,255,.15);}
+  .why-item svg{color:var(--amarillo);}
+  .why-item h4{margin-top:14px; font-size:16px;}
+  .why-item p{margin-top:8px; font-size:13.5px; color:#b7cee6; line-height:1.6;}
+
+  /* ---------- QUOTE SECTION ---------- */
+  .quote-section{background:var(--gris-claro);}
+  .quote-box{
+    background:#fff; border-radius:20px; padding:44px; display:grid; grid-template-columns:1fr 1fr; gap:40px;
+    box-shadow:var(--sombra); align-items:center;
+  }
+  .quote-box h2{font-size:clamp(24px,3vw,34px); color:var(--azul-profundo);}
+  .quote-box p{color:var(--texto-suave); margin-top:14px; line-height:1.6;}
+  .quote-features{list-style:none; margin-top:22px; display:flex; flex-direction:column; gap:12px;}
+  .quote-features li{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; font-weight:600;}
+  .quote-features svg{flex:none; color:var(--exito); margin-top:2px;}
+  .form{display:flex; flex-direction:column; gap:14px;}
+  .form input, .form textarea, .form select{
+    width:100%; padding:14px 16px; border-radius:10px; border:1.5px solid var(--gris-linea); font-family:inherit; font-size:14.5px;
+    background:#fbfcfe;
+  }
+  .form input:focus, .form textarea:focus, .form select:focus{outline:2px solid var(--azul-brillante); border-color:transparent;}
+  .form label{font-size:12.5px; font-weight:700; color:var(--texto-suave); text-transform:uppercase; letter-spacing:.05em;}
+
+  /* ---------- ABOUT ---------- */
+  .about .wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:52px; align-items:center;}
+  .about-visual{
+    aspect-ratio:1/1; border-radius:24px; background:linear-gradient(150deg,var(--azul-profundo),var(--azul-brillante));
+    display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  }
+  .about-visual img{width:52%; border-radius:50%; box-shadow:0 0 0 10px rgba(255,255,255,.12);}
+  .about-list{list-style:none; margin-top:22px; display:grid; gap:14px;}
+  .about-list li{display:flex; gap:12px; font-size:14.5px; color:var(--texto-suave);}
+  .about-list b{color:var(--texto); font-weight:700;}
+  .num{font-family:'JetBrains Mono',monospace; color:var(--azul); font-weight:700;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--azul-profundo); color:#c8dbef; padding-top:64px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,.12);}
+  .foot-brand{display:flex; align-items:center; gap:12px; margin-bottom:16px;}
+  .foot-brand img{height:48px; width:48px; border-radius:50%; box-shadow:0 0 0 2px var(--amarillo);}
+  .foot-brand b{font-family:'Oswald',sans-serif; color:#fff; font-size:15px;}
+  footer p{font-size:13.5px; line-height:1.7; color:#a9c3dc;}
+  footer h5{color:#fff; font-size:13px; letter-spacing:.08em; margin-bottom:16px;}
+  .foot-links{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .foot-links a{font-size:13.5px; color:#a9c3dc;}
+  .foot-links a:hover{color:var(--amarillo-claro);}
+  .foot-contact{list-style:none; display:flex; flex-direction:column; gap:12px; font-size:13.5px;}
+  .foot-contact li{display:flex; gap:10px; align-items:flex-start;}
+  .foot-social{display:flex; gap:10px; margin-top:16px;}
+  .foot-social a{
+    width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center;
+  }
+  .foot-social a:hover{background:var(--amarillo); color:var(--azul-profundo);}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; padding:22px 0; font-size:12.5px; color:#8fabc6; flex-wrap:wrap; gap:10px;}
+  .pay-icons{display:flex; gap:10px; align-items:center;}
+  .pay-icons span{background:rgba(255,255,255,.08); padding:5px 10px; border-radius:6px; font-size:11px; font-weight:700; font-family:'JetBrains Mono',monospace;}
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wsp-float{
+    position:fixed; bottom:24px; right:24px; z-index:60; width:60px; height:60px; border-radius:50%;
+    background:#1fae5c; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 24px -6px rgba(0,0,0,.35);
+  }
+  .wsp-float:hover{transform:scale(1.06);}
+
+  /* ---------- CHAT ASSISTANT ---------- */
+  .chat-float{
+    position:fixed; bottom:96px; right:24px; z-index:61; width:60px; height:60px; border-radius:50%;
+    background:linear-gradient(135deg, var(--azul-brillante), var(--azul-profundo)); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px -6px rgba(7,33,63,.5); color:#fff; animation:chatPulse 2.6s ease-in-out infinite;
+  }
+  .chat-float:hover{transform:scale(1.06);}
+  .chat-float .chat-badge{
+    position:absolute; top:-4px; right:-4px; background:var(--amarillo); color:var(--azul-profundo); width:20px; height:20px;
+    border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; border:2px solid #fff;
+  }
+  @keyframes chatPulse{
+    0%,100%{box-shadow:0 10px 24px -6px rgba(7,33,63,.5), 0 0 0 0 rgba(21,157,224,.5);}
+    50%{box-shadow:0 10px 24px -6px rgba(7,33,63,.5), 0 0 0 10px rgba(21,157,224,0);}
+  }
+  .chat-window{
+    position:fixed; bottom:96px; right:24px; z-index:62; width:380px; max-width:92vw; height:560px; max-height:76vh;
+    background:#fff; border-radius:20px; box-shadow:0 24px 60px -16px rgba(7,33,63,.5); display:flex; flex-direction:column;
+    overflow:hidden; transform:translateY(16px) scale(.97); opacity:0; pointer-events:none; transition:.22s;
+    border:1px solid var(--gris-linea);
+  }
+  .chat-window.open{transform:translateY(0) scale(1); opacity:1; pointer-events:auto;}
+  .chat-head{
+    background:linear-gradient(120deg, var(--azul-profundo), var(--azul-oscuro)); color:#fff; padding:16px 18px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .chat-head-avatar{
+    width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  .chat-head-info{flex:1;}
+  .chat-head-info b{font-size:14px; display:block;}
+  .chat-head-status{display:flex; align-items:center; gap:6px; font-size:11.5px; color:#bcd6ee;}
+  .chat-head-status .dot{width:7px; height:7px; border-radius:50%; background:#3ddc84;}
+  .chat-close{width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:#fff; flex:none;}
+  .chat-close:hover{background:rgba(255,255,255,.22);}
+  .chat-body{flex:1; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:12px; background:var(--gris-claro);}
+  .msg{display:flex; gap:8px; max-width:88%; animation:msgIn .25s ease;}
+  @keyframes msgIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+  .msg.bot{align-self:flex-start;}
+  .msg.user{align-self:flex-end; flex-direction:row-reverse;}
+  .msg-avatar{
+    width:26px; height:26px; border-radius:50%; background:var(--azul-profundo); color:#fff; display:flex; align-items:center;
+    justify-content:center; flex:none; margin-top:2px;
+  }
+  .msg-bubble{
+    background:#fff; border:1px solid var(--gris-linea); border-radius:14px 14px 14px 4px; padding:11px 14px; font-size:13.5px;
+    line-height:1.55; color:var(--texto);
+  }
+  .msg.user .msg-bubble{background:var(--azul-profundo); color:#fff; border-radius:14px 14px 4px 14px; border-color:var(--azul-profundo);}
+  .msg-bubble a{color:var(--azul-brillante); font-weight:700; text-decoration:underline;}
+  .msg.user .msg-bubble a{color:var(--amarillo-claro);}
+  .chat-quick{display:flex; flex-wrap:wrap; gap:8px; padding:0 18px 14px; background:var(--gris-claro);}
+  .chat-chip{
+    background:#fff; border:1.5px solid var(--gris-linea); color:var(--azul-profundo); font-weight:700; font-size:12px;
+    padding:8px 13px; border-radius:999px; transition:.15s;
+  }
+  .chat-chip:hover{border-color:var(--azul); background:#eef6fd;}
+  .typing{display:flex; gap:4px; align-items:center; padding:6px 4px;}
+  .typing span{width:6px; height:6px; border-radius:50%; background:#9fb1c0; animation:typingBounce 1.2s infinite ease-in-out;}
+  .typing span:nth-child(2){animation-delay:.15s;}
+  .typing span:nth-child(3){animation-delay:.3s;}
+  @keyframes typingBounce{0%,60%,100%{transform:translateY(0); opacity:.5;} 30%{transform:translateY(-4px); opacity:1;}}
+  .chat-input-row{
+    display:flex; gap:8px; padding:14px; border-top:1px solid var(--gris-linea); background:#fff;
+  }
+  .chat-input-row input{
+    flex:1; border:1.5px solid var(--gris-linea); border-radius:999px; padding:11px 16px; font-family:inherit; font-size:13.5px;
+    background:var(--gris-claro);
+  }
+  .chat-input-row input:focus{outline:2px solid var(--azul-brillante); border-color:transparent;}
+  .chat-send{
+    width:42px; height:42px; border-radius:50%; background:var(--amarillo); color:var(--azul-profundo); display:flex;
+    align-items:center; justify-content:center; flex:none;
+  }
+  .chat-send:hover{background:var(--amarillo-claro);}
+  .chat-foot-note{font-size:10.5px; color:var(--texto-suave); text-align:center; padding:0 14px 10px; background:#fff;}
+  @media (max-width:480px){
+    .chat-window{right:12px; left:12px; width:auto; bottom:88px; height:70vh;}
+    .chat-float{right:16px;}
+  }
+
+  /* ---------- CART DRAWER ---------- */
+  .overlay{position:fixed; inset:0; background:rgba(7,15,25,.55); opacity:0; pointer-events:none; transition:.25s; z-index:70;}
+  .overlay.open{opacity:1; pointer-events:auto;}
+  .drawer{
+    position:fixed; top:0; right:0; height:100%; width:420px; max-width:92vw; background:#fff; z-index:80;
+    transform:translateX(100%); transition:transform .3s ease; display:flex; flex-direction:column; box-shadow:-20px 0 40px rgba(0,0,0,.15);
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{display:flex; align-items:center; justify-content:space-between; padding:22px 22px; border-bottom:1px solid var(--gris-linea);}
+  .drawer-head h3{font-size:18px; color:var(--azul-profundo);}
+  .drawer-close{width:38px; height:38px; border-radius:50%; background:var(--gris-claro); display:flex; align-items:center; justify-content:center;}
+  .drawer-body{flex:1; overflow-y:auto; padding:18px 22px; display:flex; flex-direction:column; gap:16px;}
+  .drawer-empty{text-align:center; padding:60px 20px; color:var(--texto-suave);}
+  .drawer-empty svg{margin:0 auto 16px; opacity:.5;}
+  .cart-item{display:grid; grid-template-columns:60px 1fr auto; gap:12px; align-items:center;}
+  .cart-item-icon{
+    width:60px; height:60px; border-radius:10px; background:var(--gris-claro); display:flex; align-items:center; justify-content:center; color:var(--azul);
+  }
+  .cart-item-name{font-size:13.5px; font-weight:700; line-height:1.3;}
+  .cart-item-meta{font-size:12px; color:var(--texto-suave); margin-top:3px;}
+  .qty-row{display:flex; align-items:center; gap:8px; margin-top:8px;}
+  .qty-btn{width:24px; height:24px; border-radius:6px; background:var(--gris-claro); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px;}
+  .cart-item-price{font-family:'JetBrains Mono',monospace; font-weight:700; text-align:right; font-size:14px;}
+  .remove-btn{font-size:11px; color:#d64545; font-weight:700; margin-top:6px;}
+  .drawer-foot{border-top:1px solid var(--gris-linea); padding:20px 22px 26px; display:flex; flex-direction:column; gap:12px;}
+  .total-row{display:flex; justify-content:space-between; font-weight:700; font-size:16px;}
+  .total-row .num{font-size:20px;}
+
+  /* ---------- TOAST ---------- */
+  .toast{
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--azul-profundo); color:#fff;
+    padding:14px 22px; border-radius:999px; font-size:13.5px; font-weight:600; z-index:90; opacity:0; pointer-events:none; transition:.25s;
+    display:flex; align-items:center; gap:10px;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+  .toast svg{color:var(--amarillo-claro);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero .wrap{grid-template-columns:1fr; padding-top:44px;}
+    .gauge-wrap{order:-1; max-width:280px; margin:0 auto;}
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .prod-grid{grid-template-columns:repeat(2,1fr);}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .quote-box{grid-template-columns:1fr;}
+    .about .wrap{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .test-grid{grid-template-columns:1fr;}
+    .tracking .wrap{grid-template-columns:1fr;}
+  }
+  @media (max-width:720px){
+    .navlinks{display:none;}
+    .navlinks.open{
+      display:flex; position:absolute; top:100%; left:0; right:0; background:#fff; flex-direction:column;
+      padding:20px 24px; border-bottom:1px solid var(--gris-linea); box-shadow:var(--sombra); gap:18px; z-index:49;
+    }
+    .burger{display:flex;}
+    .topbar-left span:nth-child(2){display:none;}
+    .promo .wrap-inner{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .cat-grid{grid-template-columns:1fr 1fr;}
+    .prod-grid{grid-template-columns:1fr 1fr;}
+    .section{padding:56px 0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span>📍 Av. Aviación 1240, La Victoria, Lima – Perú</span>
+      <span>🕒 Lun a Vie, 9:00am – 6:00pm - Sáb 9:00am – 1:00pm</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#seguimiento">📦 Rastrear mi pedido</a>
+      <a href="tel:+51988891099">📞 988 891 099</a>
+      <a href="https://www.facebook.com/p/ICC-Negocios-SAC-61559050905706/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@iccnegocios" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site">
+  <div class="wrap nav">
+    <a href="#inicio" class="brand">
+      <img src="assets/logo-icc.jpeg" alt="Logo ICC Negocios S.A.C.">
+      <div class="brand-name">ICC NEGOCIOS<small>Importaciones Comercial del Centro</small></div>
+    </a>
+    <nav class="navlinks">
+      <a href="#categorias">Categorías</a>
+      <a href="#marcas">Marcas</a>
+      <a href="#tienda">Tienda</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#cotizar">Cotizar</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#cotizar" class="btn btn-ghost btn-sm" style="display:none" id="hdr-quote">Cotizar</a>
+      <button class="icon-btn" id="cart-toggle" aria-label="Ver carrito">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Menú">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- PROMO CAROUSEL -->
+<section class="promo-carousel" id="promo-carousel-section">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="carousel-track"></div>
+  </div>
+  <button class="carousel-arrow left" id="carousel-prev" aria-label="Anterior">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="carousel-arrow right" id="carousel-next" aria-label="Siguiente">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="carousel-dots" id="carousel-dots"></div>
+</section>
+
+<!-- HERO
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <h1>Aceites, grasas<br>y repuestos <em>al punto justo.</em></h1>
+      <p>En ICC Negocios encuentras aceites de motor, grasas automotrices, filtros y bolsas de aire de las mejores marcas — con stock real, precios competitivos y despacho rápido a todo Lima.</p>
+      <div class="hero-actions">
+        <a href="#tienda" class="btn btn-primary">Ver tienda online</a>
+        <a href="#cotizar" class="btn btn-outline">Solicitar cotización</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>+1,200</b><span>Productos en catálogo</span></div>
+        <div><b>24–48h</b><span>Despacho en Lima</span></div>
+        <div><b>+15</b><span>Marcas representadas</span></div>
+      </div>
+    </div>
+    <div class="gauge-wrap">
+      <div class="float-card f1">✔️ Stock verificado</div>
+      <div class="float-card f2">🚚 Delivery en Lima</div>
+      <div class="gauge">
+        <svg viewBox="0 0 300 300">
+          <defs>
+            <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#159de0"/>
+              <stop offset="100%" stop-color="#f5b400"/>
+            </linearGradient>
+          </defs>
+          <circle cx="150" cy="150" r="128" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="16"/>
+          <circle cx="150" cy="150" r="128" fill="none" stroke="url(#gaugeGrad)" stroke-width="16" stroke-linecap="round"
+                  stroke-dasharray="600" stroke-dashoffset="150" transform="rotate(-220 150 150)"/>
+          <g stroke="rgba(255,255,255,.5)" stroke-width="2">
+            <line x1="150" y1="30" x2="150" y2="46"/>
+            <line x1="150" y1="270" x2="150" y2="254" transform="rotate(180 150 150)"/>
+          </g>
+          <g transform="rotate(35 150 150)">
+            <line x1="150" y1="150" x2="150" y2="55" stroke="#ffd23f" stroke-width="5" stroke-linecap="round"/>
+          </g>
+          <circle cx="150" cy="150" r="14" fill="#ffd23f"/>
+          <circle cx="150" cy="150" r="6" fill="#07213f"/>
+        </svg>
+        <div class="gauge-label"><b>NIVEL DE CONFIANZA</b><span>Calidad garantizada en cada producto</span></div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- BRAND MARQUEE -->
+<section class="brands-band" id="marcas">
+  <div class="brands-head">
+    <div>
+      <div class="eyebrow">Marcas aliadas</div>
+      <h2 style="font-size:22px; margin-top:8px;">Trabajamos con las marcas líderes del rubro</h2>
+    </div>
+    <span style="font-size:13px; color:var(--texto-suave); font-weight:600;">Haz clic en una marca para filtrar la tienda →</span>
+  </div>
+  <div class="marquee-mask">
+    <div class="marquee-track" id="marquee-track"></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" id="categorias">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Nuestras líneas</div>
+      <h2>Todo para el mantenimiento de tu vehículo</h2>
+      <p>Trabajamos con marcas reconocidas a nivel internacional, seleccionadas para talleres, lubricentros y flotas.</p>
+    </div>
+    <div class="cat-grid" id="cat-grid"></div>
+  </div>
+</section>
+
+<!-- PROMOCIONES -->
+<!-- <section class="section" id="promociones" style="padding-top:0;">
+  <div class="wrap">
+    <div class="promo" onclick="window.open('https://www.facebook.com/p/ICC-Negocios-SAC-61559050905706/','_blank')">
+      <div class="wrap-inner">
+        <div>
+          <div class="eyebrow" style="color:#5a4700;">Promoción del mes · Haz clic para ver detalles</div>
+          <h3>Por la compra de 10 baldes de EVO LUBE AW68, llévate GRATIS un balde de EVO LUBE AW68 + 5 polos oficiales</h3>
+          <p>Válido durante todo el mes. Escríbenos por WhatsApp para conocer el stock disponible.</p>
+        </div>
+        <a href="#tienda" class="btn btn-dark" onclick="event.stopPropagation()">Ver ofertas</a>
+      </div>
+    </div>
+    <div class="promo-strip" style="margin-top:18px;" id="promo-strip"></div>
+  </div>
+</section> -->
+
+<!-- TIENDA -->
+<section class="section" id="tienda" style="background:var(--gris-claro);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Tienda online</div>
+      <h2>Catálogo destacado</h2>
+      <p>Agrega productos al carrito y coordina tu compra o cotización directamente por WhatsApp. Precios referenciales en soles (S/).</p>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Categoría</span>
+      <div class="tabs" id="tabs" style="margin-bottom:0;"></div>
+    </div>
+    <div class="filter-row" style="margin-bottom:32px;">
+      <span class="filter-label">Marca</span>
+      <div class="tabs" id="brand-tabs" style="margin-bottom:0;"></div>
+    </div>
+    <div class="promo-store-panel" id="promo-store-panel"></div>
+    <div class="prod-grid" id="prod-grid"></div>
+    <div class="center-cta">
+      <a href="https://wa.me/51988891099?text=Hola%20ICC%20Negocios%2C%20quisiera%20ver%20el%20cat%C3%A1logo%20completo%20de%20productos." target="_blank" class="btn btn-wsp">Quiero ver el catálogo completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-band">
+  <div class="wrap section" style="padding-top:64px;">
+    <div class="section-head" style="max-width:560px;">
+      <div class="eyebrow" style="color:var(--amarillo-claro);">¿Por qué ICC Negocios?</div>
+      <h2 style="color:#fff;">Confianza que se nota en cada entrega</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <h4>Marcas líderes</h4>
+        <p>Trabajamos solo con proveedores certificados y productos 100% originales.</p>
+      </div>
+      <div class="why-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <h4>Despacho ágil</h4>
+        <p>Entregas en 24 a 48 horas en Lima Metropolitana y coordinación a provincias.</p>
+      </div>
+      <div class="why-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <h4>Atención cercana</h4>
+        <p>Asesoría real, sin bots: te ayudamos a elegir el producto correcto para tu equipo.</p>
+      </div>
+      <div class="why-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        <h4>Precios para talleres</h4>
+        <p>Convenios y precios especiales por volumen para lubricentros y flotas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section testimonials" id="opiniones">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Opiniones de nuestros clientes</div>
+      <h2>Lo que dicen quienes ya confían en nosotros</h2>
+      <p>Estas son reseñas de ejemplo — las reemplazaremos por las opiniones reales de tus clientes (Google, Facebook, etc.).</p>
+    </div>
+    <div class="test-grid" id="test-grid"></div>
+  </div>
+</section>
+
+<!-- SEGUIMIENTO DE PEDIDO -->
+<section class="section tracking" id="seguimiento">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="color:var(--amarillo-claro);">Seguimiento de pedido</div>
+      <h2>¿Ya hiciste tu pedido? Revisa su estado aquí</h2>
+      <p>Ingresa el número de pedido y el correo de facturación con los que compraste para ver en qué etapa se encuentra tu entrega.</p>
+      <div class="tracking-steps">
+        <div class="tstep"><span class="dot"></span>Confirmado</div>
+        <div class="tstep"><span class="dot"></span>En preparación</div>
+        <div class="tstep"><span class="dot"></span>En camino</div>
+        <div class="tstep"><span class="dot"></span>Entregado</div>
+      </div>
+    </div>
+    <div class="track-box">
+      <form class="form" onsubmit="event.preventDefault(); trackOrder();">
+        <div>
+          <label>Número de pedido</label>
+          <input type="text" id="t-order" placeholder="Ej. ICC-10045" required>
+        </div>
+        <div>
+          <label>Correo de facturación</label>
+          <input type="email" id="t-email" placeholder="Ej. cliente@correo.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Buscar mi pedido</button>
+      </form>
+      <div id="track-result"></div>
+    </div>
+  </div>
+</section>
+<section class="section quote-section" id="cotizar">
+  <div class="wrap">
+    <div class="quote-box">
+      <div>
+        <div class="eyebrow">Cotización rápida</div>
+        <h2>¿Necesitas un pedido grande o un producto específico?</h2>
+        <p>Cuéntanos qué necesitas — cantidad, marca o tipo de vehículo — y te enviamos tu cotización el mismo día.</p>
+        <ul class="quote-features">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Respuesta en menos de 24 horas</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Precios especiales por volumen</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Facturación electrónica disponible</li>
+        </ul>
+        <div style="margin-top:26px;">
+          <a href="https://wa.me/51988891099?text=Hola%20ICC%20Negocios%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n." target="_blank" class="btn btn-wsp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.17 3.02 14.7 2 12.04 2z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </div>
+      <form class="form" onsubmit="event.preventDefault(); sendQuoteForm();">
+        <div>
+          <label>Nombre completo</label>
+          <input type="text" id="q-name" placeholder="Ej. Juan Pérez" required>
+        </div>
+        <div>
+          <label>Teléfono / WhatsApp</label>
+          <input type="tel" id="q-phone" placeholder="Ej. 987 654 321" required>
+        </div>
+        <div>
+          <label>¿Qué producto necesitas?</label>
+          <select id="q-category">
+            <option value="">Selecciona una categoría</option>
+            <option>Aceites de motor</option>
+            <option>Grasas automotrices</option>
+            <option>Filtros</option>
+            <option>Bolsas de aire</option>
+            <option>Refrigerantes</option>
+            <option>Otro / no estoy seguro</option>
+          </select>
+        </div>
+        <div>
+          <label>Detalle de tu pedido</label>
+          <textarea id="q-msg" rows="3" placeholder="Marca, cantidad, modelo de vehículo, etc."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Enviar solicitud por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="section about" id="nosotros">
+  <div class="wrap">
+    <div class="about-visual">
+      <img src="assets/logo-icc.jpeg" alt="ICC Negocios S.A.C.">
+    </div>
+    <div>
+      <div class="eyebrow">Quiénes somos</div>
+      <h2 style="font-size:clamp(26px,3.4vw,38px); margin-top:10px;">Importaciones Comercial del Centro — ICC Negocios S.A.C.</h2>
+      <p style="color:var(--texto-suave); margin-top:16px; line-height:1.7; font-size:15.5px;">
+        Somos una empresa peruana especializada en la venta de aceites, grasas automotrices, filtros y bolsas de aire,
+        con base en La Victoria, Lima. Abastecemos a talleres, lubricentros y clientes particulares con productos de calidad,
+        stock disponible y atención directa.
+      </p>
+      <ul class="about-list">
+        <li><span class="num">01</span><span><b>Selección confiable de marcas</b> — trabajamos con proveedores de trayectoria en el rubro automotriz.</span></li>
+        <li><span class="num">02</span><span><b>Atención directa y sin intermediarios</b> — resolvemos tus dudas técnicas por WhatsApp o en tienda.</span></li>
+        <li><span class="num">03</span><span><b>Precios competitivos para talleres</b> — convenios especiales para compras recurrentes.</span></li>
+      </ul>
+      <div class="hero-actions" style="margin-top:28px;">
+        <a href="#tienda" class="btn btn-dark">Ver productos</a>
+        <a href="#contacto" class="btn btn-ghost">Ir a contacto</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACTO -->
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/logo-icc.jpeg" alt="ICC Negocios"><b>ICC NEGOCIOS S.A.C.</b></div>
+        <p>Aceites, grasas automotrices, filtros y bolsas de aire para talleres, lubricentros y particulares en Lima.</p>
+        <div class="foot-social">
+          <a href="https://www.facebook.com/p/ICC-Negocios-SAC-61559050905706/" target="_blank" aria-label="Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@iccnegocios" target="_blank" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3.2v13.4a2.9 2.9 0 1 1-2.9-2.9c.27 0 .53.03.78.1V9.4a6.1 6.1 0 1 0 5.32 6.05V8.2a7.9 7.9 0 0 0 4.5 1.4V6.4a4.7 4.7 0 0 1-4.5-4.4z"/></svg>
+          </a>
+          <a href="https://wa.me/51988891099" target="_blank" aria-label="WhatsApp">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.17 3.02 14.7 2 12.04 2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>NAVEGACIÓN</h5>
+        <ul class="foot-links">
+          <li><a href="#categorias">Categorías</a></li>
+          <li><a href="#tienda">Tienda</a></li>
+          <li><a href="#promociones">Promociones</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>LÍNEAS DE PRODUCTO</h5>
+        <ul class="foot-links" id="foot-cats"></ul>
+      </div>
+      <div>
+        <h5>CONTACTO</h5>
+        <ul class="foot-contact">
+          <li>📍 Av. Aviación 1240, La Victoria, Lima – Perú <br></li>
+          <li>📞 <a href="tel:+51988891099">988 891 099</a></li>
+          <li>🕒 Lunes a Viernes, 9:00am – 6:00pm - Sábado 9:00am – 1:00pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> ICC Negocios S.A.C. Todos los derechos reservados.</span>
+      <div class="pay-icons">
+        <span>YAPE</span><span>PLIN</span><span>VISA</span><span>TRANSFERENCIA</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wsp-float" href="https://wa.me/51988891099?text=Hola%20ICC%20Negocios%2C%20tengo%20una%20consulta." target="_blank" aria-label="Escríbenos por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.17 3.02 14.7 2 12.04 2zm5.72 14.16c-.24.68-1.4 1.3-1.93 1.37-.5.07-1.1.1-1.78-.11a13.5 13.5 0 0 1-4.8-2.85 12 12 0 0 1-2.5-3.42c-.5-.86-.36-1.32-.19-1.55.14-.19.66-.72.94-1a.9.9 0 0 1 .68-.31c.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.6.82 2.06.9 2.21.07.15.12.32.02.5-.1.19-.15.3-.3.46-.15.16-.32.36-.45.48-.15.15-.31.31-.14.6.18.3.79 1.29 1.7 2.09 1.16 1.03 2.15 1.36 2.44 1.51.3.15.47.13.65-.08.18-.21.75-.87.96-1.17.2-.3.4-.24.66-.14.27.1 1.72.81 2.02.96.3.15.5.22.57.34.08.13.08.72-.16 1.4z"/></svg>
+</a>
+
+<!-- CHAT ASSISTANT -->
+<button class="chat-float" id="chat-toggle" aria-label="Abrir asistente virtual">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <span class="chat-badge" id="chat-badge">1</span>
+</button>
+
+<div class="chat-window" id="chat-window">
+  <div class="chat-head">
+    <div class="chat-head-avatar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 10a3 3 0 1 1 3 3v1"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg>
+    </div>
+    <div class="chat-head-info">
+      <b>Asistente ICC</b>
+      <div class="chat-head-status"><span class="dot"></span>Responde al instante</div>
+    </div>
+    <button class="chat-close" id="chat-close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-quick" id="chat-quick"></div>
+  <form class="chat-input-row" id="chat-form">
+    <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." autocomplete="off">
+    <button type="submit" class="chat-send" aria-label="Enviar">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+    </button>
+  </form>
+  <div class="chat-foot-note">Asistente automático de ICC Negocios · Para casos puntuales, escríbenos por WhatsApp</div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>Tu carrito</h3>
+    <button class="drawer-close" id="drawer-close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+  <div class="drawer-foot" id="drawer-foot" style="display:none;">
+    <div class="total-row"><span>Total estimado</span><span class="num mono" id="cart-total">S/ 0.00</span></div>
+    <a href="#" id="checkout-wsp" target="_blank" class="btn btn-wsp" style="width:100%;">Finalizar por WhatsApp</a>
+    <button class="btn btn-ghost" style="width:100%;" id="clear-cart">Vaciar carrito</button>
+  </div>
+</aside>
+
+<!-- PRODUCT / PROMO MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box" id="modal-box"></div>
+</div>
+
+<div class="toast" id="toast"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span id="toast-msg">Producto agregado</span></div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------------- TESTIMONIALS ---------------- */
+const TESTIMONIALS = [
+  {name:'Jorge R.', role:'Dueño de taller mecánico', text:'Compro grasas y aceites al por mayor para mi taller. Siempre tienen stock y el precio es mejor que en otros proveedores de la zona.', color1:'#0b3b6f', color2:'#159de0'},
+  {name:'Milagros T.', role:'Cliente particular', text:'Pedí un aceite por WhatsApp y me lo trajeron el mismo día. Muy buena atención y me explicaron bien qué producto necesitaba mi auto.', color1:'#c8102e', color2:'#f5b400'},
+  {name:'Carlos V.', role:'Administrador de flota', text:'Trabajamos con ellos para el mantenimiento de nuestras unidades. El precio por volumen y la facturación son un punto a favor.', color1:'#07213f', color2:'#0d63ad'},
+];
+const testGrid = document.getElementById('test-grid');
+testGrid.innerHTML = TESTIMONIALS.map(t=>`
+  <div class="test-card">
+    <div class="test-stars">${'★★★★★'.split('').map(()=>'<span>★</span>').join('')}</div>
+    <p class="test-quote">"${t.text}"</p>
+    <div class="test-person">
+      <div class="test-avatar" style="background:linear-gradient(135deg, ${t.color1}, ${t.color2});">${t.name.split(' ').map(w=>w[0]).join('')}</div>
+      <div><b>${t.name}</b><span>${t.role}</span></div>
+    </div>
+  </div>
+`).join('');
+
+/* ---------------- PROMO CAROUSEL ---------------- */
+// Use the three promo images (PNG) for the top carousel
+const CAROUSEL_SLIDES = [
+  {img:'assets/promos/promo-1.png', promoId:'p1'},
+  {img:'assets/promos/promo-2.png', promoId:'p2'},
+  {img:'assets/promos/promo-3.png', promoId:'p3'},
+];
+const trackEl = document.getElementById('carousel-track');
+const dotsEl = document.getElementById('carousel-dots');
+trackEl.innerHTML = CAROUSEL_SLIDES.map(s=>`
+  <div class="carousel-slide" onclick="window.open('https://heyzine.com/flip-book/ffd9ddecaf.html#page/1','_blank')">
+    <img src="${s.img}" alt="Promoción">
+  </div>
+`).join('');
+dotsEl.innerHTML = CAROUSEL_SLIDES.map((_,i)=>`<span class="dot ${i===0?'active':''}" data-i="${i}"></span>`).join('');
+
+let slideIndex = 0;
+function goToSlide(i){
+  slideIndex = (i + CAROUSEL_SLIDES.length) % CAROUSEL_SLIDES.length;
+  trackEl.style.transform = `translateX(-${slideIndex*100}%)`;
+  document.querySelectorAll('.carousel-dots .dot').forEach((d,idx)=>d.classList.toggle('active', idx===slideIndex));
+}
+document.getElementById('carousel-next').addEventListener('click', ()=>goToSlide(slideIndex+1));
+document.getElementById('carousel-prev').addEventListener('click', ()=>goToSlide(slideIndex-1));
+dotsEl.addEventListener('click', e=>{ const d=e.target.closest('.dot'); if(d) goToSlide(+d.dataset.i); });
+
+let carouselTimer = setInterval(()=>goToSlide(slideIndex+1), 5000);
+const carouselSection = document.getElementById('promo-carousel-section');
+carouselSection.addEventListener('mouseenter', ()=>clearInterval(carouselTimer));
+carouselSection.addEventListener('mouseleave', ()=>{ carouselTimer = setInterval(()=>goToSlide(slideIndex+1), 5000); });
+
+/* ---------------- ORDER TRACKING (demo) ---------------- */
+const DEMO_STAGES = ['Confirmado', 'En preparación', 'En camino', 'Entregado'];
+function trackOrder(){
+  const orderId = document.getElementById('t-order').value.trim();
+  const email = document.getElementById('t-email').value.trim();
+  const resultBox = document.getElementById('track-result');
+  if(!orderId || !email){ return; }
+
+  // Demo: determina una etapa de forma consistente en base al texto del pedido (no es data real de ventas)
+  let hash = 0;
+  for(const ch of orderId) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  const stageIndex = hash % DEMO_STAGES.length;
+
+  resultBox.innerHTML = `
+    <div class="track-timeline">
+      ${DEMO_STAGES.map((s,i)=>`
+        <div class="t-item ${i<=stageIndex?'done':''}">
+          <div class="t-dot">${i<=stageIndex ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : ''}</div>
+          <div><h5>${s}</h5><span>${i<=stageIndex ? 'Actualizado' : 'Pendiente'}</span></div>
+        </div>
+      `).join('')}
+    </div>
+    <p style="font-size:11.5px; color:#8fabc6; margin-top:16px; line-height:1.6;">
+      * Vista de demostración para pedido <b style="color:#fff;">${orderId}</b>. Al integrarse con el sistema de ventas de ICC Negocios, este panel mostrará el estado real y actualizado de tu pedido.
+      ¿Prefieres consultar directo? <a href="https://wa.me/51988891099?text=${encodeURIComponent('Hola, quisiera consultar el estado de mi pedido '+orderId)}" target="_blank" style="color:var(--amarillo-claro); font-weight:700;">Escríbenos por WhatsApp</a>.
+    </p>
+  `;
+}
+const navlinksEl = document.querySelector('.navlinks');
+document.getElementById('burger').addEventListener('click', ()=> navlinksEl.classList.toggle('open'));
+navlinksEl.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> navlinksEl.classList.remove('open')));
+
+/* ---------------- DATA ---------------- */
+const CATEGORIES = [
+  {id:'aceites', name:'Aceites de Motor', desc:'Diésel y gasolina, todos los grados', icon:'drop'},
+  {id:'caja', name:'Aceites de Caja', desc:'Transmisión y diferencial', icon:'drop'},
+  {id:'industrial', name:'Aceites Industriales', desc:'Hidráulicos ISO VG', icon:'gear'},
+  {id:'grasas', name:'Grasas', desc:'Litio y calcio, para todo uso', icon:'bucket'},
+  {id:'refrigerantes', name:'Refrigerantes', desc:'Anticongelante 50/50', icon:'snow'},
+  {id:'urea', name:'Urea Automotriz', desc:'Para sistemas SCR diésel', icon:'flask'},
+  {id:'filtros', name:'Filtros', desc:'Aceite, aire y combustible', icon:'filter'},
+  {id:'bolsas', name:'Bolsas de Aire', desc:'Suspensión neumática y compatibles', icon:'wind'},
+  {id:'valvulas', name:'Válvulas', desc:'Válvulas y componentes de admisión', icon:'valve'},
+  {id:'accesorios', name:'Repuestos Varios', desc:'Bujías, mangueras y más', icon:'wrench'},
+];
+
+const ICONS = {
+  drop:'<path d="M12 2s7 8.5 7 13a7 7 0 1 1-14 0c0-4.5 7-13 7-13z"/>',
+  gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
+  filter:'<path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/>',
+  wind:'<path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/><path d="M17.7 7.7A2.5 2.5 0 1 1 19.5 12H2"/>',
+  valve:'<circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18" stroke-width="1.6"/>',
+  snow:'<path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/>',
+  flask:'<path d="M9 2v6.2L4.2 17a2 2 0 0 0 1.8 3h12a2 2 0 0 0 1.8-3L15 8.2V2"/><path d="M8 2h8"/>',
+  wrench:'<path d="M14.7 6.3a4 4 0 1 0-5.66 5.66L2 19l3 3 6.96-7.04A4 4 0 0 0 17.7 9.3z"/>',
+  bucket:'<path d="M4 7h16l-1.8 12.5a1.5 1.5 0 0 1-1.48 1.5H7.28a1.5 1.5 0 0 1-1.48-1.5L4 7z"/><path d="M2 7l2.8-4h14.4L22 7"/><path d="M9 11.5v5M15 11.5v5"/>'
+};
+
+function svgIcon(name, size=22){
+  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[name]}</svg>`;
+}
+
+const BRANDS = [
+  {id:'MOBIL', name:'Mobil', tag:'Lubricantes premium', color:'#0b3b6f', color2:'#159de0', file:'assets/brands/Logo Mobil.png'},
+  {id:'CASTROL', name:'Castrol', tag:'Alto rendimiento', color:'#c8102e', color2:'#00693e', file:'assets/brands/Logo Castrol.png'},
+  {id:'SHELL', name:'Shell', tag:'Tecnología de motor', color:'#dd1d21', color2:'#f5b400', file:'assets/brands/Logo Shell.png'},
+  {id:'VISTONY', name:'Vistony', tag:'Lubricante peruano', color:'#0d63ad', color2:'#07213f', file:'assets/brands/Logo Vistony.png'},
+  {id:'HYUNDAI', name:'Hyundai', tag:'Repuestos genuinos', color:'#07213f', color2:'#0d63ad', file:'assets/brands/Logo Hyundai.png'},
+];
+
+const PRODUCTS = [
+  // ---- ACEITES DE MOTOR (productos más vendidos) ----
+  {id:'p1', name:'Aceite Diésel 15W-40 CK-4', brand:'MOBIL', cat:'aceites', icon:'drop', price:null, unit:'Balde', image: 'assets/products/p1.jpg',
+   desc:'Aceite diésel multigrado 15W-40 con especificación API CK-4, ideal para motores modernos de alto rendimiento con sistemas de post-tratamiento de emisiones.',
+   specs:[['Grado','15W-40'],['Especificación','API CK-4'],['Marca','Mobil'],['Presentación','Balde']]},
+  {id:'p2', name:'Aceite Diésel 15W-40 CK-4', brand:'MOBIL', cat:'aceites', icon:'drop', price:null, unit:'Cilindro', image: 'assets/products/p2.png',
+   desc:'Aceite diésel multigrado 15W-40 con especificación API CK-4, ideal para motores modernos de alto rendimiento con sistemas de post-tratamiento de emisiones.',
+   specs:[['Grado','15W-40'],['Especificación','API CK-4'],['Marca','Mobil'],['Presentación','Cilindro']]},
+  {id:'p3', name:'Aceite Diésel 15W-40 CK-4', brand:'MOBIL', cat:'aceites', icon:'drop', price:null, unit:'Minibalde', image: 'assets/products/p3.png',
+   desc:'Aceite diésel multigrado 15W-40 con especificación API CK-4, ideal para motores modernos de alto rendimiento con sistemas de post-tratamiento de emisiones.',
+   specs:[['Grado','15W-40'],['Especificación','API CK-4'],['Marca','Mobil'],['Presentación','Minibalde']]},
+  {id:'p4', name:'Aceite Diésel 25W-50 CF-4', brand:'MOBIL', cat:'aceites', icon:'drop', price:null, unit:'Balde', image: 'assets/products/p4.jpg',
+   desc:'Aceite diésel multigrado 25W-50 con especificación API CF-4, recomendado para motores de trabajo pesado en climas cálidos.',
+   specs:[['Grado','25W-50'],['Especificación','API CF-4'],['Marca','Mobil'],['Presentación','Balde']]},
+  {id:'p5', name:'Aceite Diésel 25W-50 CF-4', brand:'MOBIL', cat:'aceites', icon:'drop', price:null, unit:'Minibalde', image: 'assets/products/p5.png',
+   desc:'Aceite diésel multigrado 25W-50 con especificación API CF-4, recomendado para motores de trabajo pesado en climas cálidos.',
+   specs:[['Grado','25W-50'],['Especificación','API CF-4'],['Marca','Mobil'],['Presentación','Minibalde']]},
+  {id:'p6', name:'Aceite Diésel 25W-60 CF-4', brand:'MOBIL', cat:'aceites', icon:'drop', price:null, unit:'Balde', image: 'assets/products/p6.jpg', 
+   desc:'Aceite diésel multigrado 25W-60 con especificación API CF-4, formulado para equipos de alta exigencia y temperaturas elevadas.',
+   specs:[['Grado','25W-60'],['Especificación','API CF-4'],['Marca','Mobil'],['Presentación','Balde']]},
+  {id:'p7', name:'Aceite Diésel 25W-60 CF-4', brand:'MOBIL', cat:'aceites', icon:'drop', price:null, unit:'Minibalde', image: 'assets/products/p7.png',
+   desc:'Aceite diésel multigrado 25W-60 con especificación API CF-4, formulado para equipos de alta exigencia y temperaturas elevadas.',
+   specs:[['Grado','25W-60'],['Especificación','API CF-4'],['Marca','Mobil'],['Presentación','Minibalde']]},
+  {id:'p8', name:'Aceite Diésel 15W-40 CK-4', brand:'CASTROL', cat:'aceites', icon:'drop', price:null, unit:'Minibalde', image: 'assets/products/p8.png',
+   desc:'Aceite diésel multigrado 15W-40 con especificación API CK-4, ideal para motores modernos de alto rendimiento con sistemas de post-tratamiento de emisiones.',
+   specs:[['Grado','15W-40'],['Especificación','API CK-4'],['Marca','Castrol'],['Presentación','Minibalde']]},
+  {id:'p9', name:'Aceite Diésel 15W-40 CI-4', brand:'CASTROL', cat:'aceites', icon:'drop', price:null, unit:'Galonera', tag:'nuevo', image: 'assets/products/p9.png',
+   desc:'Aceite diésel multigrado 15W-40 con especificación API CI-4, para motores diésel de generación más reciente con mayor carga térmica.',
+   specs:[['Grado','15W-40'],['Especificación','API CI-4'],['Marca','Castrol'],['Presentación','Galonera']]},
+  {id:'p10', name:'Aceite Diésel 25W-60 CF-4', brand:'CASTROL', cat:'aceites', icon:'drop', price:null, unit:'Balde', image: 'assets/products/p10.png',
+   desc:'Aceite diésel multigrado 25W-60 con especificación API CF-4, formulado para equipos de alta exigencia y temperaturas elevadas.',
+   specs:[['Grado','25W-60'],['Especificación','API CF-4'],['Marca','Castrol'],['Presentación','Balde']]},
+  {id:'p11', name:'Aceite Diésel 15W-40 CK-4', brand:'SHELL', cat:'aceites', icon:'drop', price:null, unit:'Balde', image: 'assets/products/p11.png',
+   desc:'Aceite diésel multigrado 15W-40 con especificación API CK-4, ideal para motores modernos de alto rendimiento con sistemas de post-tratamiento de emisiones.',
+   specs:[['Grado','15W-40'],['Especificación','API CK-4'],['Marca','Shell'],['Presentación','Balde']]},
+  {id:'p12', name:'Aceite Diésel 15W-40 CK-4', brand:'SHELL', cat:'aceites', icon:'drop', price:null, unit:'Cilindro', image: 'assets/products/p12.png',  
+   desc:'Aceite diésel multigrado 15W-40 con especificación API CK-4, ideal para motores modernos de alto rendimiento con sistemas de post-tratamiento de emisiones.',
+   specs:[['Grado','15W-40'],['Especificación','API CK-4'],['Marca','Shell'],['Presentación','Cilindro']]},
+
+  // ---- ACEITES DE CAJA / TRANSMISIÓN ----
+  {id:'p13', name:'Aceite de Caja 80W-90 GL-5', brand:'SHELL', cat:'caja', icon:'drop', price:null, unit:'Balde', image: 'assets/products/p13.png',
+   desc:'Aceite para caja y diferencial 80W-90 con especificación GL-5, indicado para engranajes hipoidales de alta carga.',
+   specs:[['Grado','80W-90'],['Especificación','GL-5'],['Marca','Shell'],['Presentación','Balde']]},
+  {id:'p14', name:'Aceite de Caja 85W-140 GL-5', brand:'SHELL', cat:'caja', icon:'drop', price:null, unit:'Balde', image: 'assets/products/p14.jpg',
+   desc:'Aceite para caja y diferencial 85W-140 con especificación GL-5, para diferenciales de trabajo pesado y bajas velocidades.',
+   specs:[['Grado','85W-140'],['Especificación','GL-5'],['Marca','Shell'],['Presentación','Balde']]},
+
+  // ---- ACEITES INDUSTRIALES ----
+  {id:'p15', name:'Aceite Hidráulico W68', brand:'SHELL', cat:'industrial', icon:'gear', price:null, unit:'Balde', image: 'assets/products/p15.jpg',
+   desc:'Aceite hidráulico ISO VG 68 para sistemas hidráulicos industriales y equipos estacionarios.',
+   specs:[['Grado','ISO VG 68'],['Marca','Shell'],['Presentación','Balde']]},
+  {id:'p16', name:'Aceite Hidráulico W68', brand:'VISTONY', cat:'industrial', icon:'gear', price:null, unit:'Balde', image: 'assets/products/p16.png',
+   desc:'Aceite hidráulico ISO VG 68 para sistemas hidráulicos industriales y equipos estacionarios.',
+   specs:[['Grado','ISO VG 68'],['Marca','Vistony'],['Presentación','Balde']]},
+  {id:'p17', name:'Aceite Hidráulico AW46', brand:'VISTONY', cat:'industrial', icon:'gear', price:null, unit:'Balde', image: 'assets/products/p17.jpg',
+   desc:'Aceite hidráulico antidesgaste ISO VG 46 para sistemas hidráulicos de precisión.',
+   specs:[['Grado','ISO VG 46'],['Marca','Vistony'],['Presentación','Balde']]},
+  {id:'p18', name:'Aceite Hidráulico W68', brand:'HYUNDAI', cat:'industrial', icon:'gear', price:null, unit:'Cilindro', image: 'assets/products/p18.jpg',
+   desc:'Aceite hidráulico ISO VG 68 para sistemas hidráulicos industriales y equipos estacionarios.',
+   specs:[['Grado','ISO VG 68'],['Marca','Hyundai'],['Presentación','Cilindro']]},
+
+  // ---- GRASAS ----
+  {id:'p19', name:'Grasa EP2 Litio', brand:'VISTONY', cat:'grasas', icon:'bucket', price:null, unit:'Balde', image: 'assets/products/p19.jpg',
+   desc:'Grasa de litio grado EP2, de uso general para rodamientos y puntos de engrase con carga moderada.',
+   specs:[['Tipo','EP2 Litio'],['Marca','Vistony'],['Presentación','Balde']]},
+  {id:'p20', name:'Grasa H2 Calcio', brand:'VISTONY', cat:'grasas', icon:'bucket', price:null, unit:'Balde', image: 'assets/products/p20.png',
+   desc:'Grasa de calcio grado H2, con buena resistencia al agua para aplicaciones húmedas.',
+   specs:[['Tipo','H2 Calcio'],['Marca','Vistony'],['Presentación','Balde']]},
+
+  // ---- REFRIGERANTES ----
+  {id:'p21', name:'Refrigerante 50/50', brand:'VISTONY', cat:'refrigerantes', icon:'snow', price:null, unit:'Balde', image: 'assets/products/p21.png',
+   desc:'Refrigerante premezclado 50/50, listo para usar, protege contra congelamiento y sobrecalentamiento.',
+   specs:[['Tipo','Premezclado 50/50'],['Marca','Vistony'],['Presentación','Balde']]},
+
+  // ---- UREA ----
+  {id:'p22', name:'Urea Automotriz (AdBlue)', brand:'VISTONY', cat:'urea', icon:'flask', price:null, unit:'Balde', tag:'nuevo', image: 'assets/products/p22.jpg',
+   desc:'Solución de urea automotriz para sistemas SCR de reducción catalítica en motores diésel.',
+   specs:[['Tipo','Urea / AdBlue'],['Marca','Vistony'],['Presentación','Balde']]},
+
+  // ---- FILTROS ----
+  {id:'p23', name:'Hyundai Filtro de Aceite Genuino', brand:'HYUNDAI', cat:'filtros', icon:'filter', price:22.90, unit:'Unidad', image: 'assets/products/p23.png',
+   desc:'Filtro de aceite original Hyundai, diseñado con el ajuste y capacidad de filtración exactos para tu vehículo.',
+   specs:[['Tipo','Filtro de aceite'],['Compatibilidad','Línea Hyundai'],['Presentación','Unidad']]},
+  {id:'p24', name:'Hyundai Filtro de Aire de Motor', brand:'HYUNDAI', cat:'filtros', icon:'filter', price:34.90, unit:'Unidad',
+   desc:'Filtro de aire genuino que protege el motor del ingreso de partículas, optimizando el rendimiento.',
+   specs:[['Tipo','Filtro de aire'],['Compatibilidad','Línea Hyundai'],['Presentación','Unidad']]},
+  {id:'p25', name:'Hyundai Filtro de Combustible', brand:'HYUNDAI', cat:'filtros', icon:'filter', price:39.90, unit:'Unidad',
+   desc:'Filtro de combustible original que protege el sistema de inyección de impurezas y agua.',
+   specs:[['Tipo','Filtro de combustible'],['Compatibilidad','Línea Hyundai'],['Presentación','Unidad']]},
+  {id:'p26', name:'Hyundai Filtro de Cabina / Polen', brand:'HYUNDAI', cat:'filtros', icon:'filter', price:32.90, unit:'Unidad', tag:'nuevo',
+   desc:'Filtra el polvo y polen del aire que ingresa a la cabina, mejorando la calidad del aire para los ocupantes.',
+   specs:[['Tipo','Filtro de cabina'],['Compatibilidad','Línea Hyundai'],['Presentación','Unidad']]},
+
+  // ---- BOLSAS DE AIRE ----
+  {id:'p27', name:'Hyundai Bolsa de Aire Delantera', brand:'HYUNDAI', cat:'bolsas', icon:'wind', price:189.00, unit:'Unidad',
+   desc:'Bolsa de aire de suspensión neumática con el ajuste exacto de fábrica.',
+   specs:[['Tipo','Bolsa de aire delantera'],['Compatibilidad','Línea Hyundai'],['Presentación','Unidad']]},
+  {id:'p28', name:'Hyundai Bolsa de Aire Trasera Kit', brand:'HYUNDAI', cat:'bolsas', icon:'wind', price:225.00, unit:'Par', tag:'oferta', old:260.00,
+   desc:'Kit de bolsas de aire traseras genuinas, ideal para restaurar la altura y estabilidad original de la suspensión.',
+   specs:[['Tipo','Bolsa de aire trasera'],['Compatibilidad','Línea Hyundai'],['Presentación','Par (2 unidades)']]},
+
+  // ---- ACCESORIOS ----
+  {id:'p35', name:'Hyundai Bujía Genuina Iridio', brand:'HYUNDAI', cat:'accesorios', icon:'wrench', price:26.90, unit:'Unidad',
+   desc:'Bujía de iridio original, con mayor vida útil y mejor encendido.',
+   specs:[['Tipo','Bujía de iridio'],['Compatibilidad','Línea Hyundai'],['Presentación','Unidad']]},
+  {id:'p36', name:'Hyundai Manguera de Radiador Genuina', brand:'HYUNDAI', cat:'accesorios', icon:'wrench', price:34.90, unit:'Unidad', tag:'nuevo',
+   desc:'Manguera original resistente a altas temperaturas y presión.',
+   specs:[['Tipo','Manguera de radiador'],['Compatibilidad','Línea Hyundai'],['Presentación','Unidad']]},
+];
+
+const ACTIVE_PROMOTIONS = [
+  {
+    id: 'evo-lube-aw68',
+    label: 'Promoción del mes',
+    title: 'Por la compra de 10 baldes de EVO LUBE AW68, llévate GRATIS un balde de EVO LUBE AW68 + 5 polos oficiales',
+    text: 'Oferta vigente para compras de EVO LUBE AW68 en volumen. Incluye un balde extra de EVO LUBE AW68 y 5 polos oficiales como beneficio por la compra de 10 baldes.',
+    terms: 'Válido mientras haya stock disponible. Consulta condiciones y disponibilidad vía WhatsApp.',
+    image: 'assets/promos/promo.jpg'
+  }
+];
+
+const PROMOS = {
+  main:{
+    title:'Hasta 20% OFF en aceites sintéticos + envío gratis desde S/150',
+    badge:'Promoción del mes',
+    desc:'Durante todo el mes, obtén hasta 20% de descuento en aceites sintéticos Mobil, Castrol y Shell seleccionados. Además, todo pedido desde S/150 incluye envío gratuito dentro de Lima Metropolitana.',
+    items:[
+      'Válido en compras dentro de la tienda online o por WhatsApp.',
+      'Aplica sobre aceites sintéticos y semisintéticos seleccionados.',
+      'Envío gratis en Lima Metropolitana para pedidos desde S/150.',
+      'Sujeto a stock disponible al momento de la compra.'
+    ],
+    terms:'Promoción válida durante el mes en curso. ICC Negocios S.A.C. se reserva el derecho de modificar o finalizar la promoción sin previo aviso. Consulta stock y condiciones actualizadas por WhatsApp.'
+  },
+  p1:{ title:'2x1 en aditivos limpia-inyectores', badge:'Oferta especial',
+    desc:'Lleva 2 aditivos limpia-inyectores Castrol o Mobil por el precio de 1. Ideal para mantenimiento preventivo antes del cambio de aceite.',
+    items:['Aplica en la compra de 2 unidades del mismo producto.','Válido para aditivos limpia-inyectores seleccionados.','No acumulable con otras promociones.'],
+    terms:'Promoción sujeta a disponibilidad de stock. Válida presentando este banner en tienda o mencionándolo por WhatsApp.'},
+  p2:{ title:'Cambio de filtro gratis por 3 galones', badge:'Beneficio de taller',
+    desc:'Al comprar 3 galones de aceite de motor de cualquier marca, llevas el filtro de aceite compatible totalmente gratis.',
+    items:['Aplica en la compra de 3 galones del mismo tipo de aceite.','Filtro de regalo sujeto a disponibilidad de modelo.','Válido para retiro en tienda o coordinando delivery.'],
+    terms:'Promoción válida mientras dure el stock de filtros. Consulta compatibilidad con tu asesor.'},
+  p3:{ title:'Descuento especial para talleres y flotas', badge:'Precios corporativos',
+    desc:'Si eres taller, lubricentro o administras una flota vehicular, accede a precios preferenciales por volumen de compra y facturación electrónica.',
+    items:['Precios diferenciados según volumen mensual.','Atención con asesor comercial dedicado.','Coordinación de entregas programadas.'],
+    terms:'Escríbenos por WhatsApp indicando el rubro de tu negocio para evaluar tu convenio comercial.'},
+  p4:{ title:'Delivery gratis en pedidos desde S/150', badge:'Envío gratis',
+    desc:'Todos los pedidos realizados desde la tienda online que superen los S/150 incluyen delivery gratuito dentro de Lima Metropolitana.',
+    items:['Aplica automáticamente al superar el monto mínimo.','Entrega estimada de 24 a 48 horas.','Para provincias, el flete se cotiza aparte.'],
+    terms:'Cobertura de envío gratuito limitada a distritos de Lima Metropolitana. Consulta tiempos exactos según tu zona.'}
+};
+
+/* ---------------- RENDER CATEGORIES ---------------- */
+const catGrid = document.getElementById('cat-grid');
+CATEGORIES.forEach(c=>{
+  catGrid.innerHTML += `
+    <a href="#tienda" class="cat-card" data-cat="${c.id}">
+      <div class="cat-icon">${svgIcon(c.icon,26)}</div>
+      <h3>${c.name}</h3>
+      <span>${c.desc}</span>
+      <span class="go">VER PRODUCTOS →</span>
+    </a>`;
+});
+catGrid.addEventListener('click', e=>{
+  const card = e.target.closest('.cat-card');
+  if(card){ setTimeout(()=>filterProducts(card.dataset.cat), 300); }
+});
+
+const footCats = document.getElementById('foot-cats');
+CATEGORIES.forEach(c=>{ footCats.innerHTML += `<li><a href="#tienda">${c.name}</a></li>`; });
+
+/* ---------------- BRAND MARQUEE ---------------- */
+const marqueeTrack = document.getElementById('marquee-track');
+function brandChip(b){
+  const src = b.file ? b.file : `assets/brands/${b.id.toLowerCase()}.svg`;
+  return `
+    <div class="brand-chip" data-brand="${b.id}" onclick="goToBrand('${b.id}')">
+      <div class="brand-logo-slot"><img src="${src}" alt="${b.name}" loading="lazy"></div>
+    </div>`;
+}
+marqueeTrack.innerHTML = [...BRANDS, ...BRANDS].map(brandChip).join(''); // duplicated for seamless loop
+
+function goToBrand(brandId){
+  document.getElementById('tienda').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>filterProducts({brand:brandId}), 350);
+}
+
+/* ---------------- RENDER TABS + PRODUCTS ---------------- */
+const tabsEl = document.getElementById('tabs');
+const brandTabsEl = document.getElementById('brand-tabs');
+const promoStorePanel = document.getElementById('promo-store-panel');
+const allTabs = [{id:'all', name:'Todos'}, ...CATEGORIES];
+allTabs.forEach((t,i)=>{
+  tabsEl.innerHTML += `<button class="tab ${i===0?'active':''}" data-cat="${t.id}">${t.name}</button>`;
+});
+const allBrandTabs = [{id:'all', name:'Todas'}, ...BRANDS];
+allBrandTabs.forEach((b,i)=>{
+  brandTabsEl.innerHTML += `<button class="tab ${i===0?'active':''}" data-brand="${b.id}">${b.name}</button>`;
+});
+
+function renderActivePromos(){
+  promoStorePanel.innerHTML = ACTIVE_PROMOTIONS.map(p => `
+    <article class="promo-store-card" onclick="openPromoModal('${p.id}')" style="cursor:pointer;">
+      <div class="promo-store-image-wrap">
+        <img class="promo-store-image" src="${p.image}" alt="${p.title}" loading="eager" draggable="false">
+      </div>
+      <div class="promo-content">
+        <span class="promo-badge">${p.label}</span>
+        <div class="promo-label">Promoción vigente</div>
+        <h3>${p.title}</h3>
+        <p>${p.text}</p>
+        <p style="font-size:12px; color:#735d00; font-weight:700;">${p.terms}</p>
+      </div>
+    </article>
+  `).join('');
+}
+
+const prodGrid = document.getElementById('prod-grid');
+let currentFilter = {cat:'all', brand:'all'};
+
+function renderProducts(){
+  let list = PRODUCTS;
+  if(currentFilter.cat!=='all') list = list.filter(p=>p.cat===currentFilter.cat);
+  if(currentFilter.brand!=='all') list = list.filter(p=>p.brand===currentFilter.brand);
+
+  if(list.length===0){
+    prodGrid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px 20px; color:var(--texto-suave);">
+      No encontramos productos con esta combinación de filtros. Prueba con otra categoría o marca, o <a href="#cotizar" style="color:var(--azul); font-weight:700;">cotiza directamente</a>.
+    </div>`;
+    return;
+  }
+
+  prodGrid.innerHTML = list.map(p=>`
+    <div class="card" onclick="openProductModal('${p.id}')">
+      <div class="card-media">
+        ${p.tag==='oferta' ? '<span class="badge oferta">OFERTA</span>' : (p.tag==='nuevo' ? '<span class="badge nuevo">NUEVO</span>' : '')}
+        <div class="prod-image-slot" ${p.image ? `style="background-image:url('${p.image}')"` : ''}>
+          ${p.image ? '' : svgIcon(p.icon, 60)}
+        </div>
+        <div class="view-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Ver ficha técnica</div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">${p.brand}</div>
+        <div class="card-title">${p.name}</div>
+        <div class="card-meta">${p.unit}</div>
+        <div class="card-price">
+          ${p.price!==null ? `
+            <span class="price-now mono">S/ ${p.price.toFixed(2)}</span>
+            ${p.old ? `<span class="price-old mono">S/ ${p.old.toFixed(2)}</span>` : ''}
+          ` : `<span class="price-now mono" style="font-size:14.5px;">Cotizar precio</span>`}
+        </div>
+        <div class="card-actions">
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart('${p.id}')">🛒 Agregar</button>
+          <a class="quote-btn" title="Cotizar por WhatsApp" target="_blank" onclick="event.stopPropagation()"
+             href="https://wa.me/51988891099?text=${encodeURIComponent('Hola, quisiera cotizar: '+p.name+' ('+p.brand+')')}">
+             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.17 3.02 14.7 2 12.04 2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+renderActivePromos();
+renderProducts();
+
+function filterProducts(partial){
+  currentFilter = {...currentFilter, ...partial};
+  document.querySelectorAll('#tabs .tab').forEach(t=>t.classList.toggle('active', t.dataset.cat===currentFilter.cat));
+  document.querySelectorAll('#brand-tabs .tab').forEach(t=>t.classList.toggle('active', t.dataset.brand===currentFilter.brand));
+  document.querySelectorAll('.brand-chip').forEach(c=>c.classList.toggle('active', c.dataset.brand===currentFilter.brand));
+  renderProducts();
+}
+tabsEl.addEventListener('click', e=>{
+  const btn = e.target.closest('.tab');
+  if(btn) filterProducts({cat:btn.dataset.cat});
+});
+brandTabsEl.addEventListener('click', e=>{
+  const btn = e.target.closest('.tab');
+  if(btn) filterProducts({brand:btn.dataset.brand});
+});
+
+/* ---------------- PRODUCT / PROMO MODAL ---------------- */
+const modalOverlay = document.getElementById('modal-overlay');
+const modalBox = document.getElementById('modal-box');
+
+function openProductModal(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  modalBox.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-grid">
+      <div class="modal-media">
+        ${p.tag==='oferta' ? '<span class="badge oferta">OFERTA</span>' : (p.tag==='nuevo' ? '<span class="badge nuevo">NUEVO</span>' : '')}
+        <div class="prod-image-slot" ${p.image ? `style="background-image:url('${p.image}')"` : ''}>
+          ${p.image ? '' : svgIcon(p.icon, 90)}
+        </div>
+      </div>
+      <div class="modal-content">
+        <div class="card-brand">${p.brand}</div>
+        <h2>${p.name}</h2>
+        <div class="modal-unit">Presentación: ${p.unit}</div>
+        <div class="modal-price">
+          ${p.price!==null ? `
+            <span class="price-now mono">S/ ${p.price.toFixed(2)}</span>
+            ${p.old ? `<span class="price-old mono">S/ ${p.old.toFixed(2)}</span>` : ''}
+          ` : `<span class="price-now mono" style="font-size:19px;">Precio a cotizar</span>`}
+        </div>
+        <div class="modal-badges">
+          <span class="mini-badge">✅ Stock disponible</span>
+          <span class="mini-badge">🚚 Despacho 24–48h</span>
+        </div>
+        <p class="modal-desc">${p.desc}</p>
+        <div class="spec-table">
+          ${p.specs.map(([k,v])=>`<div class="spec-row"><span>${k}</span><span>${v}</span></div>`).join('')}
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-dark" style="flex:1;" onclick="addToCart('${p.id}'); closeModal();">🛒 Agregar al carrito</button>
+          <a class="btn btn-wsp" target="_blank" href="https://wa.me/51988891099?text=${encodeURIComponent('Hola, quisiera cotizar: '+p.name+' ('+p.brand+')')}">Cotizar</a>
+        </div>
+      </div>
+    </div>
+  `;
+  openModal();
+}
+
+function openPromoModal(id){
+  const promo = PROMOS[id] || ACTIVE_PROMOTIONS.find(item => item.id === id);
+  if(!promo) return;
+
+  const items = promo.items || [
+    promo.text,
+    'Consulta disponibilidad y condiciones actuales por WhatsApp.',
+    'Válido mientras haya stock disponible.'
+  ];
+
+  const imageMarkup = promo.image ? `
+    <div class="promo-modal-media">
+      <img src="${promo.image}" alt="${promo.title}" loading="eager">
+    </div>
+  ` : '';
+
+  modalBox.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="promo-modal-head">
+      <div class="eyebrow">${promo.badge || promo.label || 'Promoción vigente'}</div>
+      <h2>${promo.title}</h2>
+    </div>
+    <div class="promo-modal-layout">
+      ${imageMarkup}
+      <div class="promo-modal-body">
+        <p class="modal-desc" style="margin-top:0;">${promo.desc || promo.text}</p>
+        <ul>
+          ${items.map(i => `<li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>${i}</li>`).join('')}
+        </ul>
+        <div class="modal-actions">
+          <a class="btn btn-wsp" style="flex:1; text-align:center;" target="_blank" href="https://wa.me/51988891099?text=${encodeURIComponent('Hola, quisiera aprovechar la promoción: '+promo.title)}">Consultar esta promoción</a>
+        </div>
+        <div class="promo-terms">${promo.terms || 'Consulta condiciones actualizadas por WhatsApp.'}</div>
+      </div>
+    </div>
+  `;
+  openModal();
+}
+
+function openModal(){ modalOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(){ modalOverlay.classList.remove('open'); document.body.style.overflow=''; }
+modalOverlay.addEventListener('click', e=>{ if(e.target===modalOverlay) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ---------------- CART ---------------- */
+let cart = {}; // id -> {product, qty}
+
+function addToCart(id){
+  const product = PRODUCTS.find(p=>p.id===id);
+  if(!cart[id]) cart[id] = {product, qty:0};
+  cart[id].qty++;
+  updateCartUI();
+  showToast(product.name + ' agregado al carrito');
+}
+function changeQty(id, delta){
+  if(!cart[id]) return;
+  cart[id].qty += delta;
+  if(cart[id].qty<=0) delete cart[id];
+  updateCartUI();
+}
+function removeItem(id){ delete cart[id]; updateCartUI(); }
+function clearCart(){ cart = {}; updateCartUI(); }
+
+function updateCartUI(){
+  const items = Object.values(cart);
+  const count = items.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cart-count').textContent = count;
+  const body = document.getElementById('drawer-body');
+  const foot = document.getElementById('drawer-foot');
+
+  if(items.length===0){
+    body.innerHTML = `<div class="drawer-empty">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      <p>Tu carrito está vacío.<br>Explora la tienda y agrega productos.</p>
+    </div>`;
+    foot.style.display = 'none';
+    return;
+  }
+  foot.style.display = 'flex';
+  body.innerHTML = items.map(({product,qty})=>`
+    <div class="cart-item">
+      <div class="cart-item-icon">${svgIcon(product.icon, 26)}</div>
+      <div>
+        <div class="cart-item-name">${product.name}</div>
+        <div class="cart-item-meta">${product.brand} · ${product.unit}</div>
+        <div class="qty-row">
+          <button class="qty-btn" onclick="changeQty('${product.id}',-1)">−</button>
+          <span class="mono" style="font-size:13px; font-weight:700;">${qty}</span>
+          <button class="qty-btn" onclick="changeQty('${product.id}',1)">+</button>
+        </div>
+      </div>
+      <div>
+        <div class="cart-item-price">${product.price!==null ? 'S/ '+(product.price*qty).toFixed(2) : 'A cotizar'}</div>
+        <div class="remove-btn" onclick="removeItem('${product.id}')" style="cursor:pointer; text-align:right;">Quitar</div>
+      </div>
+    </div>
+  `).join('');
+
+  const pricedItems = items.filter(({product})=>product.price!==null);
+  const quoteItems = items.filter(({product})=>product.price===null);
+  const total = pricedItems.reduce((s,{product,qty})=>s+product.price*qty,0);
+  document.getElementById('cart-total').textContent = 'S/ ' + total.toFixed(2) + (quoteItems.length ? ' + a cotizar' : '');
+
+  const msgLines = items.map(({product,qty})=>`• ${qty}x ${product.name} (${product.brand}, ${product.unit}) — ${product.price!==null ? 'S/ '+(product.price*qty).toFixed(2) : 'precio a confirmar'}`);
+  const fullMsg = `Hola ICC Negocios, quiero coordinar este pedido:%0A%0A${msgLines.join('%0A')}%0A%0ASubtotal con precio fijo: S/ ${total.toFixed(2)}${quoteItems.length ? '%0A(Hay '+quoteItems.length+' producto(s) pendiente(s) de cotizar)' : ''}`;
+  document.getElementById('checkout-wsp').href = `https://wa.me/51988891099?text=${fullMsg}`;
+}
+
+document.getElementById('clear-cart').addEventListener('click', clearCart);
+
+/* ---------------- DRAWER TOGGLE ---------------- */
+const drawer = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('open'); }
+function closeDrawer(){ drawer.classList.remove('open'); overlay.classList.remove('open'); }
+document.getElementById('cart-toggle').addEventListener('click', openDrawer);
+document.getElementById('drawer-close').addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer);
+
+/* ---------------- TOAST ---------------- */
+let toastTimer;
+function showToast(msg){
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>toast.classList.remove('show'), 2200);
+}
+
+/* ---------------- QUOTE FORM ---------------- */
+function sendQuoteForm(){
+  const name = document.getElementById('q-name').value.trim();
+  const phone = document.getElementById('q-phone').value.trim();
+  const category = document.getElementById('q-category').value;
+  const msg = document.getElementById('q-msg').value.trim();
+  const text = `Hola ICC Negocios, quisiera una cotización.%0A%0ANombre: ${name}%0ATeléfono: ${phone}%0ACategoría: ${category || 'No especificada'}%0ADetalle: ${msg || 'Sin detalle adicional'}`;
+  window.open(`https://wa.me/51988891099?text=${text}`, '_blank');
+}
+
+/* ================= CHAT ASSISTANT ================= */
+const chatFloat = document.getElementById('chat-toggle');
+const chatWindow = document.getElementById('chat-window');
+const chatClose = document.getElementById('chat-close');
+const chatBody = document.getElementById('chat-body');
+const chatQuick = document.getElementById('chat-quick');
+const chatForm = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chatBadge = document.getElementById('chat-badge');
+
+const BOT_AVATAR = `<div class="msg-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M9 10a3 3 0 1 1 3 3v1"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg></div>`;
+
+function chatAppend(role, html){
+  const wrap = document.createElement('div');
+  wrap.className = 'msg ' + role;
+  wrap.innerHTML = (role==='bot' ? BOT_AVATAR : '') + `<div class="msg-bubble">${html}</div>`;
+  chatBody.appendChild(wrap);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function chatTyping(show){
+  let el = document.getElementById('chat-typing-indicator');
+  if(show){
+    if(el) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'msg bot';
+    wrap.id = 'chat-typing-indicator';
+    wrap.innerHTML = BOT_AVATAR + `<div class="msg-bubble"><div class="typing"><span></span><span></span><span></span></div></div>`;
+    chatBody.appendChild(wrap);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  } else if(el){ el.remove(); }
+}
+
+function botReply(html, delay=650){
+  chatTyping(true);
+  setTimeout(()=>{
+    chatTyping(false);
+    chatAppend('bot', html);
+  }, delay);
+}
+
+const WSP_BASE = 'https://wa.me/51988891099?text=';
+function wspLink(text){ return WSP_BASE + encodeURIComponent(text); }
+
+/* ---- Knowledge base (se arma con los mismos datos de la tienda) ---- */
+function catListHtml(){
+  return CATEGORIES.map(c=>`<a href="#tienda" onclick="filterProducts({cat:'${c.id}'})">${c.name}</a>`).join(' · ');
+}
+function brandListHtml(){
+  return BRANDS.map(b=>b.name).join(', ');
+}
+
+const CHAT_QUICK_REPLIES = [
+  {label:'📦 ¿Qué categorías tienen?', q:'¿Qué categorías de productos tienen?'},
+  {label:'🏷️ Marcas', q:'¿Con qué marcas trabajan?'},
+  {label:'🚚 Envíos', q:'¿Hacen envíos y cuánto demoran?'},
+  {label:'💳 Formas de pago', q:'¿Qué formas de pago aceptan?'},
+  {label:'🕒 Horario de atención', q:'¿Cuál es su horario de atención?'},
+  {label:'📍 Ubicación', q:'¿Dónde están ubicados?'},
+  {label:'🧾 Cotizar', q:'¿Cómo pido una cotización?'},
+  {label:'🔎 Rastrear mi pedido', q:'¿Cómo rastreo mi pedido?'},
+];
+
+function renderQuickReplies(){
+  chatQuick.innerHTML = CHAT_QUICK_REPLIES.map(r=>`<button type="button" class="chat-chip" data-q="${r.q.replace(/"/g,'&quot;')}">${r.label}</button>`).join('');
+}
+renderQuickReplies();
+chatQuick.addEventListener('click', e=>{
+  const btn = e.target.closest('.chat-chip');
+  if(btn) handleUserMessage(btn.dataset.q);
+});
+
+/* ---- Reglas de respuesta (asistente basado en palabras clave) ---- */
+function promoSummaryText(){
+  if(!ACTIVE_PROMOTIONS || !ACTIVE_PROMOTIONS.length) return 'No hay promociones activas registradas por el momento.';
+
+  return ACTIVE_PROMOTIONS.map(p => `
+    <div style="margin-top:10px; margin-bottom:8px;">
+      <b>${p.label || 'Promoción vigente'}:</b> ${p.title}<br>
+      <span style="color:#5a4700;">${p.terms || 'Consulta disponibilidad por WhatsApp.'}</span>
+    </div>
+  `).join('');
+}
+
+function getBotResponse(rawText){
+  const t = rawText.toLowerCase().trim();
+
+  // Saludo
+  if(/^(hola|buenas|hey|hi|ola)\b/.test(t)){
+    return `¡Hola! 👋 Soy el asistente virtual de <b>ICC Negocios</b>. Puedo ayudarte con información de productos, marcas, envíos, pagos, cotizaciones y más. ¿Qué necesitas?`;
+  }
+
+  // Categorías / productos
+  if(/(categor[ií]a|qu[eé] productos|qu[eé] venden|l[ií]neas|cat[aá]logo)/.test(t)){
+    return `Trabajamos estas líneas de producto:<br><br>${catListHtml()}<br><br>Haz clic en cualquiera para verla filtrada en la tienda, o dime qué tipo de producto buscas (ej. "aceite 15W40" o "grasa").`;
+  }
+
+  // Marcas
+  if(/marca/.test(t)){
+    return `Trabajamos con las siguientes marcas: <b>${brandListHtml()}</b>.<br><br>Puedes filtrar la tienda por marca haciendo clic en el logo en la sección "Marcas aliadas" ↑, o dime cuál te interesa y te muestro sus productos.`;
+  }
+
+  // Marca específica mencionada
+  for(const b of BRANDS){
+    if(t.includes(b.name.toLowerCase())){
+      const items = PRODUCTS.filter(p=>p.brand===b.id).slice(0,4);
+      const list = items.map(p=>`• ${p.name} (${p.unit})`).join('<br>');
+      return `Estos son algunos productos de <b>${b.name}</b> que manejamos:<br><br>${list}<br><br><a href="#tienda" onclick="filterProducts({brand:'${b.id}'})">Ver todos los productos de ${b.name} →</a>`;
+    }
+  }
+
+  // Envíos / delivery
+  if(/(env[ií]o|delivery|despacho|demora|cu[aá]nto tarda|llega)/.test(t)){
+    return `Hacemos despacho en <b>24 a 48 horas</b> dentro de Lima Metropolitana 🚚. Para provincias coordinamos el envío por encomienda (el flete se cotiza aparte). Los pedidos desde S/150 tienen delivery gratis dentro de Lima. ¿Quieres coordinar un envío? <a href="${wspLink('Hola, quisiera coordinar el envío de mi pedido.')}" target="_blank">Escríbenos por WhatsApp</a>.`;
+  }
+
+  // Pagos
+  if(/(pago|yape|plin|efectivo|tarjeta|transferencia|factura)/.test(t)){
+    return `Aceptamos <b>Yape, Plin, transferencia bancaria, tarjeta y efectivo</b> en tienda. También emitimos <b>factura electrónica</b> para empresas y talleres. ¿Necesitas los datos para transferencia? <a href="${wspLink('Hola, quisiera los datos para hacer una transferencia/Yape/Plin.')}" target="_blank">Pídelos por WhatsApp</a>.`;
+  }
+
+  // Horario
+  if(/(horario|hora|atienden|abren|cierran)/.test(t)){
+    return `Nuestro horario de atención es:<br><b>Lunes a Viernes:</b> 9:00am – 6:00pm<br><b>Sábados:</b> 9:00am – 1:00pm<br>Domingos y feriados permanecemos cerrados.`;
+  }
+
+  // Ubicación
+  if(/(ubicaci[oó]n|direcci[oó]n|d[oó]nde (est[aá]n|queda)|local|tienda f[ií]sica)/.test(t)){
+    return `Estamos en <b>Av. Aviación 1240, La Victoria, Lima – Perú</b> 📍. <a href="https://www.google.com/maps/search/?api=1&query=Av.+Aviaci%C3%B3n+1240+La+Victoria+Lima+Peru" target="_blank">Ver en Google Maps →</a>`;
+  }
+
+  // Cotizar
+  if(/(cotiza|presupuesto|precio de|cu[aá]nto cuesta|cu[aá]nto vale)/.test(t)){
+    return `Para cotizar puedes:<br>1️⃣ Ir a la sección <a href="#cotizar">Cotizar</a> y llenar el formulario.<br>2️⃣ Agregar productos al carrito 🛒 y presionar "Finalizar por WhatsApp".<br>3️⃣ O escribirnos directo: <a href="${wspLink('Hola, quisiera solicitar una cotización.')}" target="_blank">Cotizar por WhatsApp</a>.<br>Normalmente respondemos en menos de 24 horas.`;
+  }
+
+  // Seguimiento de pedido
+  if(/(rastre|seguimiento|d[oó]nde est[aá] mi pedido|estado de mi pedido)/.test(t)){
+    return `Puedes revisar el estado de tu pedido en la sección <a href="#seguimiento">Seguimiento de pedido</a> ingresando tu número de pedido y el correo de facturación. Si prefieres, también puedes <a href="${wspLink('Hola, quisiera consultar el estado de mi pedido.')}" target="_blank">consultarlo directo por WhatsApp</a>.`;
+  }
+
+  // Promociones del mes / vigentes
+  if(/(promo(cio|ci[oó]n|s)|oferta|descuento|mes en curso|vigente|vigentes)/.test(t)){
+    const promoText = promoSummaryText();
+    return `Tenemos una promoción activa este mes 🎉<br><br>${promoText}<br>La puedes ver en la sección <a href="#promociones">Promociones</a> o consultar directamente por WhatsApp: <a href="${wspLink('Hola, quisiera conocer la promoción vigente del mes.')}" target="_blank">Consultar promoción</a>.`;
+  }
+
+  // Talleres / mayoreo
+  if(/(taller|mayorista|por mayor|flota|convenio|volumen)/.test(t)){
+    return `Sí, trabajamos con talleres, lubricentros y flotas con <b>precios especiales por volumen</b> y facturación electrónica. Cuéntanos el rubro de tu negocio y te preparamos una propuesta: <a href="${wspLink('Hola, tengo un taller/flota y quisiera conocer sus precios corporativos.')}" target="_blank">Conversar por WhatsApp</a>.`;
+  }
+
+  // Contacto humano / asesor
+  if(/(asesor|humano|persona|hablar con alguien|whatsapp|llamar|tel[eé]fono)/.test(t)){
+    return `Claro, con gusto te comunico con nuestro equipo 📞 <b>988 891 099</b>. <a href="${wspLink('Hola, quisiera hablar con un asesor de ICC Negocios.')}" target="_blank">Escríbenos por WhatsApp</a> y te atendemos directo.`;
+  }
+
+  // Agradecimiento
+  if(/(gracias|genial|perfecto|ok listo)/.test(t)){
+    return `¡De nada! 😊 Si necesitas algo más, aquí estoy. También puedes explorar la <a href="#tienda">tienda</a> o escribirnos por WhatsApp.`;
+  }
+
+  // Fallback: intenta encontrar coincidencia de producto por palabras clave (grado, tipo, etc.)
+  const kwHit = PRODUCTS.filter(p => t.split(/\s+/).some(word => word.length>2 && p.name.toLowerCase().includes(word)));
+  if(kwHit.length){
+    const items = kwHit.slice(0,4).map(p=>`• ${p.name} — ${p.brand} (${p.unit})`).join('<br>');
+    return `Encontré esto relacionado en nuestro catálogo:<br><br>${items}<br><br><a href="#tienda">Ver en la tienda →</a>`;
+  }
+
+  // No entendido
+  return `No estoy seguro de haber entendido bien 🤔 Puedo ayudarte con: categorías de productos, marcas, envíos, pagos, horarios, ubicación, cotizaciones o seguimiento de pedido. Si prefieres, escríbenos directo: <a href="${wspLink('Hola, tengo una consulta: ' + rawText)}" target="_blank">Consultar por WhatsApp</a>.`;
+}
+
+function handleUserMessage(text){
+  if(!text || !text.trim()) return;
+  chatAppend('user', text.replace(/</g,'&lt;'));
+  chatInput.value = '';
+  const reply = getBotResponse(text);
+  botReply(reply);
+}
+
+chatForm.addEventListener('submit', e=>{
+  e.preventDefault();
+  handleUserMessage(chatInput.value);
+});
+
+let chatOpened = false;
+function openChat(){
+  chatWindow.classList.add('open');
+  chatBadge.style.display = 'none';
+  if(!chatOpened){
+    chatOpened = true;
+    botReply(`¡Hola! 👋 Soy el <b>Asistente ICC</b>. Puedo ayudarte a encontrar productos, ver marcas, conocer envíos, pagos, horarios o hacer una cotización. ¿En qué te ayudo?`, 500);
+  }
+}
+function closeChat(){ chatWindow.classList.remove('open'); }
+chatFloat.addEventListener('click', ()=>{ chatWindow.classList.contains('open') ? closeChat() : openChat(); });
+chatClose.addEventListener('click', closeChat);
+
+updateCartUI();
+</script>
+</body>
+</html>
