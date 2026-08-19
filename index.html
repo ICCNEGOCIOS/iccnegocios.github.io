@@ -456,10 +456,16 @@
   /* ---------- ABOUT ---------- */
   .about .wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:52px; align-items:center;}
   .about-visual{
-    aspect-ratio:1/1; border-radius:24px; background:linear-gradient(150deg,var(--azul-profundo),var(--azul-brillante));
-    display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+    aspect-ratio:1/1; border-radius:32px; position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    background:#fff; border:1px solid rgba(14,41,63,.08);
+    box-shadow:0 18px 42px -28px rgba(7,33,63,.18);
   }
-  .about-visual img{width:52%; border-radius:50%; box-shadow:0 0 0 10px rgba(255,255,255,.12);}
+  .about-visual img{
+    position:relative; z-index:1; width:90%;
+    border-radius:50%; background:#fff; padding:0;
+    box-shadow:none; filter:none;
+  }
   .about-list{list-style:none; margin-top:22px; display:grid; gap:14px;}
   .about-list li{display:flex; gap:12px; font-size:14.5px; color:var(--texto-suave);}
   .about-list b{color:var(--texto); font-weight:700;}
@@ -658,7 +664,7 @@
     </div>
     <div class="topbar-right">
       <a href="#seguimiento">📦 Rastrear mi pedido</a>
-      <a href="tel:+51988891099">📞 988 891 099</a>
+      <a href="tel:+51933795267">📞 933 795 267</a>
       <a href="https://www.facebook.com/p/ICC-Negocios-SAC-61559050905706/" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.tiktok.com/@iccnegocios" target="_blank" rel="noopener">TikTok</a>
     </div>
@@ -817,7 +823,7 @@
     <div class="promo-store-panel" id="promo-store-panel"></div>
     <div class="prod-grid" id="prod-grid"></div>
     <div class="center-cta">
-      <a href="https://wa.me/51988891099?text=Hola%20ICC%20Negocios%2C%20quisiera%20ver%20el%20cat%C3%A1logo%20completo%20de%20productos." target="_blank" class="btn btn-wsp">Quiero ver el catálogo completo</a>
+      <a href="https://wa.me/51933795267?text=Hola%20ICC%20Negocios%2C%20quisiera%20ver%20el%20cat%C3%A1logo%20completo%20de%20productos." target="_blank" class="btn btn-wsp">Quiero ver el catálogo completo</a>
     </div>
   </div>
 </section>
@@ -909,7 +915,7 @@
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Facturación electrónica disponible</li>
         </ul>
         <div style="margin-top:26px;">
-          <a href="https://wa.me/51988891099?text=Hola%20ICC%20Negocios%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n." target="_blank" class="btn btn-wsp">
+          <a href="https://wa.me/51933795267?text=Hola%20ICC%20Negocios%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n." target="_blank" class="btn btn-wsp">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.17 3.02 14.7 2 12.04 2z"/></svg>
             Cotizar por WhatsApp
           </a>
@@ -987,7 +993,7 @@
           <a href="https://www.tiktok.com/@iccnegocios" target="_blank" aria-label="TikTok">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3.2v13.4a2.9 2.9 0 1 1-2.9-2.9c.27 0 .53.03.78.1V9.4a6.1 6.1 0 1 0 5.32 6.05V8.2a7.9 7.9 0 0 0 4.5 1.4V6.4a4.7 4.7 0 0 1-4.5-4.4z"/></svg>
           </a>
-          <a href="https://wa.me/51988891099" target="_blank" aria-label="WhatsApp">
+          <a href="https://wa.me/51933795267" target="_blank" aria-label="WhatsApp">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.17 3.02 14.7 2 12.04 2z"/></svg>
           </a>
         </div>
@@ -1009,7 +1015,7 @@
         <h5>CONTACTO</h5>
         <ul class="foot-contact">
           <li>📍 Av. Aviación 1240, La Victoria, Lima – Perú <br></li>
-          <li>📞 <a href="tel:+51988891099">988 891 099</a></li>
+          <li>📞 <a href="tel:+51933795267">933 795 267</a></li>
           <li>🕒 Lunes a Viernes, 9:00am – 6:00pm - Sábado 9:00am – 1:00pm</li>
         </ul>
       </div>
@@ -1024,7 +1030,7 @@
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a class="wsp-float" href="https://wa.me/51988891099?text=Hola%20ICC%20Negocios%2C%20tengo%20una%20consulta." target="_blank" aria-label="Escríbenos por WhatsApp">
+<a class="wsp-float" href="https://wa.me/51933795267?text=Hola%20ICC%20Negocios%2C%20tengo%20una%20consulta." target="_blank" aria-label="Escríbenos por WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.17 3.02 14.7 2 12.04 2zm5.72 14.16c-.24.68-1.4 1.3-1.93 1.37-.5.07-1.1.1-1.78-.11a13.5 13.5 0 0 1-4.8-2.85 12 12 0 0 1-2.5-3.42c-.5-.86-.36-1.32-.19-1.55.14-.19.66-.72.94-1a.9.9 0 0 1 .68-.31c.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.6.82 2.06.9 2.21.07.15.12.32.02.5-.1.19-.15.3-.3.46-.15.16-.32.36-.45.48-.15.15-.31.31-.14.6.18.3.79 1.29 1.7 2.09 1.16 1.03 2.15 1.36 2.44 1.51.3.15.47.13.65-.08.18-.21.75-.87.96-1.17.2-.3.4-.24.66-.14.27.1 1.72.81 2.02.96.3.15.5.22.57.34.08.13.08.72-.16 1.4z"/></svg>
 </a>
 
@@ -1158,7 +1164,7 @@ function trackOrder(){
     </div>
     <p style="font-size:11.5px; color:#8fabc6; margin-top:16px; line-height:1.6;">
       * Vista de demostración para pedido <b style="color:#fff;">${orderId}</b>. Al integrarse con el sistema de ventas de ICC Negocios, este panel mostrará el estado real y actualizado de tu pedido.
-      ¿Prefieres consultar directo? <a href="https://wa.me/51988891099?text=${encodeURIComponent('Hola, quisiera consultar el estado de mi pedido '+orderId)}" target="_blank" style="color:var(--amarillo-claro); font-weight:700;">Escríbenos por WhatsApp</a>.
+      ¿Prefieres consultar directo? <a href="https://wa.me/51933795267?text=${encodeURIComponent('Hola, quisiera consultar el estado de mi pedido '+orderId)}" target="_blank" style="color:var(--amarillo-claro); font-weight:700;">Escríbenos por WhatsApp</a>.
     </p>
   `;
 }
@@ -1458,7 +1464,7 @@ function renderProducts(){
         <div class="card-actions">
           <button class="add-btn" onclick="event.stopPropagation(); addToCart('${p.id}')">🛒 Agregar</button>
           <a class="quote-btn" title="Cotizar por WhatsApp" target="_blank" onclick="event.stopPropagation()"
-             href="https://wa.me/51988891099?text=${encodeURIComponent('Hola, quisiera cotizar: '+p.name+' ('+p.brand+')')}">
+             href="https://wa.me/51933795267?text=${encodeURIComponent('Hola, quisiera cotizar: '+p.name+' ('+p.brand+')')}">
              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.17 3.02 14.7 2 12.04 2z"/></svg>
           </a>
         </div>
@@ -1523,7 +1529,7 @@ function openProductModal(id){
         </div>
         <div class="modal-actions">
           <button class="btn btn-dark" style="flex:1;" onclick="addToCart('${p.id}'); closeModal();">🛒 Agregar al carrito</button>
-          <a class="btn btn-wsp" target="_blank" href="https://wa.me/51988891099?text=${encodeURIComponent('Hola, quisiera cotizar: '+p.name+' ('+p.brand+')')}">Cotizar</a>
+          <a class="btn btn-wsp" target="_blank" href="https://wa.me/51933795267?text=${encodeURIComponent('Hola, quisiera cotizar: '+p.name+' ('+p.brand+')')}">Cotizar</a>
         </div>
       </div>
     </div>
@@ -1563,7 +1569,7 @@ function openPromoModal(id){
           ${items.map(i => `<li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>${i}</li>`).join('')}
         </ul>
         <div class="modal-actions">
-          <a class="btn btn-wsp" style="flex:1; text-align:center;" target="_blank" href="https://wa.me/51988891099?text=${encodeURIComponent('Hola, quisiera aprovechar la promoción: '+promo.title)}">Consultar esta promoción</a>
+          <a class="btn btn-wsp" style="flex:1; text-align:center;" target="_blank" href="https://wa.me/51933795267?text=${encodeURIComponent('Hola, quisiera aprovechar la promoción: '+promo.title)}">Consultar esta promoción</a>
         </div>
         <div class="promo-terms">${promo.terms || 'Consulta condiciones actualizadas por WhatsApp.'}</div>
       </div>
@@ -1638,7 +1644,7 @@ function updateCartUI(){
 
   const msgLines = items.map(({product,qty})=>`• ${qty}x ${product.name} (${product.brand}, ${product.unit}) — ${product.price!==null ? 'S/ '+(product.price*qty).toFixed(2) : 'precio a confirmar'}`);
   const fullMsg = `Hola ICC Negocios, quiero coordinar este pedido:%0A%0A${msgLines.join('%0A')}%0A%0ASubtotal con precio fijo: S/ ${total.toFixed(2)}${quoteItems.length ? '%0A(Hay '+quoteItems.length+' producto(s) pendiente(s) de cotizar)' : ''}`;
-  document.getElementById('checkout-wsp').href = `https://wa.me/51988891099?text=${fullMsg}`;
+  document.getElementById('checkout-wsp').href = `https://wa.me/51933795267?text=${fullMsg}`;
 }
 
 document.getElementById('clear-cart').addEventListener('click', clearCart);
@@ -1669,7 +1675,7 @@ function sendQuoteForm(){
   const category = document.getElementById('q-category').value;
   const msg = document.getElementById('q-msg').value.trim();
   const text = `Hola ICC Negocios, quisiera una cotización.%0A%0ANombre: ${name}%0ATeléfono: ${phone}%0ACategoría: ${category || 'No especificada'}%0ADetalle: ${msg || 'Sin detalle adicional'}`;
-  window.open(`https://wa.me/51988891099?text=${text}`, '_blank');
+  window.open(`https://wa.me/51933795267?text=${text}`, '_blank');
 }
 
 /* ================= CHAT ASSISTANT ================= */
@@ -1713,7 +1719,7 @@ function botReply(html, delay=650){
   }, delay);
 }
 
-const WSP_BASE = 'https://wa.me/51988891099?text=';
+const WSP_BASE = 'https://wa.me/51933795267?text=';
 function wspLink(text){ return WSP_BASE + encodeURIComponent(text); }
 
 /* ---- Knowledge base (se arma con los mismos datos de la tienda) ---- */
@@ -1826,7 +1832,7 @@ function getBotResponse(rawText){
 
   // Contacto humano / asesor
   if(/(asesor|humano|persona|hablar con alguien|whatsapp|llamar|tel[eé]fono)/.test(t)){
-    return `Claro, con gusto te comunico con nuestro equipo 📞 <b>988 891 099</b>. <a href="${wspLink('Hola, quisiera hablar con un asesor de ICC Negocios.')}" target="_blank">Escríbenos por WhatsApp</a> y te atendemos directo.`;
+    return `Claro, con gusto te comunico con nuestro equipo 📞 <b>933 795 267</b>. <a href="${wspLink('Hola, quisiera hablar con un asesor de ICC Negocios.')}" target="_blank">Escríbenos por WhatsApp</a> y te atendemos directo.`;
   }
 
   // Agradecimiento
