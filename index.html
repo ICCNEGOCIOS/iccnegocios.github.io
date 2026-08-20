@@ -441,6 +441,103 @@
 }
 .tab.active, .tab:hover{background:var(--azul-profundo); color:#fff;}
 
+  /* ---------- SHOP LAYOUT (sidebar + grid) ---------- */
+  .shop-layout{display:grid; grid-template-columns:264px 1fr; gap:28px; align-items:start;}
+  .shop-main{min-width:0;}
+
+  .filters-sidebar{
+    background:#fff; border:1px solid var(--gris-linea); border-radius:16px; padding:6px 20px;
+    position:sticky; top:118px; max-height:calc(100vh - 140px); overflow-y:auto;
+  }
+  .filter-block{padding:18px 0; border-bottom:1px solid var(--gris-linea);}
+  .filter-block:last-of-type{border-bottom:none;}
+  .filter-block-title{
+    display:flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--texto); margin-bottom:12px;
+  }
+  .filter-block-title::before{content:""; width:3px; height:14px; background:var(--amarillo); border-radius:2px; display:inline-block;}
+
+  /* Categorías: lista simple de una sola selección */
+  .filter-cat-list{display:flex; flex-direction:column; gap:2px;}
+  .filter-cat-item{
+    display:flex; align-items:center; justify-content:space-between; gap:8px; padding:9px 6px; border-radius:8px;
+    font-size:13.5px; font-weight:600; color:var(--texto-suave); cursor:pointer; transition:.15s;
+  }
+  .filter-cat-item:hover{background:var(--gris-claro); color:var(--texto);}
+  .filter-cat-item.active{background:linear-gradient(135deg,#eef6fd,#fff); color:var(--azul); font-weight:700;}
+  .filter-cat-item.active .filter-cat-count{color:var(--azul);}
+  .filter-cat-count{font-family:'JetBrains Mono',monospace; font-size:11px; color:#a7b3bd;}
+
+  /* Checkbox lists: marca / envase / grado */
+  .filter-check-list{display:flex; flex-direction:column; gap:3px;}
+  .filter-check-item{
+    display:flex; align-items:center; gap:10px; padding:7px 6px; border-radius:8px; cursor:pointer; transition:.15s;
+  }
+  .filter-check-item:hover{background:var(--gris-claro);}
+  .filter-check-item.hidden-extra{display:none;}
+  .filter-check-item input[type="checkbox"]{
+    appearance:none; -webkit-appearance:none; width:17px; height:17px; border-radius:5px; border:1.5px solid var(--gris-linea);
+    background:#fff; flex:none; position:relative; cursor:pointer; transition:.15s;
+  }
+  .filter-check-item input[type="checkbox"]:checked{background:var(--azul-profundo); border-color:var(--azul-profundo);}
+  .filter-check-item input[type="checkbox"]:checked::after{
+    content:""; position:absolute; left:5px; top:1.5px; width:4px; height:8px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg);
+  }
+  .filter-check-item label{font-size:13.5px; color:var(--texto); cursor:pointer; flex:1; line-height:1.3;}
+  .filter-check-item .fc-count{font-family:'JetBrains Mono',monospace; font-size:11px; color:#a7b3bd;}
+
+  .show-more-btn{
+    margin-top:8px; font-size:12.5px; font-weight:700; color:var(--azul); background:none; padding:4px 6px; border-radius:6px;
+  }
+  .show-more-btn:hover{background:var(--gris-claro);}
+
+  #clear-filters-btn{width:100%; margin:16px 0 8px;}
+
+  /* Chips de filtros activos, arriba del grid */
+  .active-filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;}
+  .active-filters:empty{display:none; margin-bottom:0;}
+  .active-filter-chip{
+    display:inline-flex; align-items:center; gap:7px; background:#fff; border:1.5px solid var(--azul); color:var(--azul-profundo);
+    font-size:12.5px; font-weight:700; padding:7px 8px 7px 14px; border-radius:999px;
+  }
+  .active-filter-chip button{
+    width:18px; height:18px; border-radius:50%; background:var(--gris-claro); display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  .active-filter-chip button:hover{background:var(--gris-linea);}
+
+  /* Botón "Filtros" (móvil) */
+  .mobile-filter-bar{display:none;}
+  .mobile-filter-btn{
+    display:flex; align-items:center; justify-content:center; gap:9px; width:100%; padding:13px 18px; border-radius:12px;
+    background:var(--azul-profundo); color:#fff; font-weight:700; font-size:14px; margin-bottom:20px;
+  }
+  .mobile-filter-btn .count-pill{
+    background:var(--amarillo); color:var(--azul-profundo); font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:800;
+    min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; padding:0 4px;
+  }
+
+  .filters-overlay{position:fixed; inset:0; background:rgba(7,15,25,.55); opacity:0; pointer-events:none; transition:.25s; z-index:70;}
+  .filters-overlay.open{opacity:1; pointer-events:auto;}
+
+  @media (max-width:980px){
+    .shop-layout{display:block;}
+    .mobile-filter-bar{display:block;}
+    .filters-sidebar{
+      position:fixed; top:0; left:0; height:100%; width:340px; max-width:88vw; z-index:80; border-radius:0;
+      max-height:none; transform:translateX(-100%); transition:transform .3s ease; box-shadow:20px 0 40px rgba(0,0,0,.15);
+      padding:0; display:flex; flex-direction:column;
+    }
+    .filters-sidebar.open{transform:translateX(0);}
+    .filters-sidebar-head{
+      display:flex; align-items:center; justify-content:space-between; padding:20px 22px; border-bottom:1px solid var(--gris-linea); flex:none;
+    }
+    .filters-sidebar-head h3{font-size:17px; color:var(--azul-profundo);}
+    .filters-sidebar-close{width:36px; height:36px; border-radius:50%; background:var(--gris-claro); display:flex; align-items:center; justify-content:center;}
+    .filters-sidebar-body{flex:1; overflow-y:auto; padding:6px 22px;}
+    .filters-sidebar-foot{flex:none; padding:16px 22px 22px; border-top:1px solid var(--gris-linea);}
+    #clear-filters-btn{margin:0;}
+  }
+
   /* ---------- PRODUCT GRID ---------- */
   .prod-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
   .card{
@@ -866,19 +963,59 @@
       <h2>Catálogo destacado</h2>
       <p>Agrega productos al carrito y coordina tu compra o cotización directamente por WhatsApp. Precios referenciales en soles (S/).</p>
     </div>
-    <div class="filter-row">
-      <span class="filter-label">Categoría</span>
-      <div class="tabs" id="tabs" style="margin-bottom:0;"></div>
+    <div class="mobile-filter-bar">
+      <button class="mobile-filter-btn" id="mobile-filter-toggle">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filtros
+        <span class="count-pill" id="mobile-filter-count" style="display:none;">0</span>
+      </button>
     </div>
-    <div class="filter-row" style="margin-bottom:32px;">
-      <span class="filter-label">Marca</span>
-      <div class="tabs" id="brand-tabs" style="margin-bottom:0;"></div>
+
+    <div class="shop-layout">
+      <aside class="filters-sidebar" id="filters-sidebar">
+        <div class="filters-sidebar-head">
+          <h3>Filtros</h3>
+          <button class="filters-sidebar-close" id="filters-sidebar-close" aria-label="Cerrar filtros">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="filters-sidebar-body">
+          <div class="filter-block">
+            <div class="filter-block-title">Categorías</div>
+            <div class="filter-cat-list" id="cat-filter-list"></div>
+          </div>
+          <div class="filter-block">
+            <div class="filter-block-title">Marca</div>
+            <div class="filter-check-list" id="brand-filter-list"></div>
+            <button class="show-more-btn" id="brand-show-more" data-target="brand-filter-list">+ Mostrar más</button>
+          </div>
+          <div class="filter-block" id="envase-filter-block">
+            <div class="filter-block-title">Envase</div>
+            <div class="filter-check-list" id="envase-filter-list"></div>
+            <button class="show-more-btn" id="envase-show-more" data-target="envase-filter-list">+ Mostrar más</button>
+          </div>
+          <div class="filter-block" id="grado-filter-block">
+            <div class="filter-block-title">Grado</div>
+            <div class="filter-check-list" id="grado-filter-list"></div>
+            <button class="show-more-btn" id="grado-show-more" data-target="grado-filter-list">+ Mostrar más</button>
+          </div>
+        </div>
+        <div class="filters-sidebar-foot">
+          <button class="btn btn-ghost" id="clear-filters-btn">Limpiar filtros</button>
+        </div>
+      </aside>
+
+      <div class="shop-main">
+        <div class="promo-store-panel" id="promo-store-panel"></div>
+        <div class="active-filters" id="active-filters"></div>
+        <div class="prod-grid" id="prod-grid"></div>
+        <div class="center-cta">
+          <a href="https://wa.me/51933795267?text=Hola%20ICC%20Negocios%2C%20quisiera%20ver%20el%20cat%C3%A1logo%20completo%20de%20productos." target="_blank" class="btn btn-wsp">Quiero ver el catálogo completo</a>
+        </div>
+      </div>
     </div>
-    <div class="promo-store-panel" id="promo-store-panel"></div>
-    <div class="prod-grid" id="prod-grid"></div>
-    <div class="center-cta">
-      <a href="https://wa.me/51933795267?text=Hola%20ICC%20Negocios%2C%20quisiera%20ver%20el%20cat%C3%A1logo%20completo%20de%20productos." target="_blank" class="btn btn-wsp">Quiero ver el catálogo completo</a>
-    </div>
+
+    <div class="filters-overlay" id="filters-overlay"></div>
   </div>
 </section>
 
@@ -1393,7 +1530,7 @@ CATEGORIES.forEach(c=>{
 });
 catGrid.addEventListener('click', e=>{
   const card = e.target.closest('.cat-card');
-  if(card){ setTimeout(()=>filterProducts(card.dataset.cat), 300); }
+  if(card){ setTimeout(()=>filterProducts({cat:card.dataset.cat}), 300); }
 });
 
 const footCats = document.getElementById('foot-cats');
@@ -1410,23 +1547,194 @@ function brandChip(b){
 }
 marqueeTrack.innerHTML = [...BRANDS, ...BRANDS].map(brandChip).join(''); // duplicated for seamless loop
 
-function goToBrand(brandId){
-  document.getElementById('tienda').scrollIntoView({behavior:'smooth'});
-  setTimeout(()=>filterProducts({brand:brandId}), 350);
+/* ---------------- SIDEBAR FILTERS ---------------- */
+const promoStorePanel = document.getElementById('promo-store-panel');
+
+// Helpers para extraer datos de filtro a partir de los productos reales
+function getSpec(p, key){
+  const hit = p.specs.find(([k])=>k.toLowerCase()===key.toLowerCase());
+  return hit ? hit[1] : null;
+}
+function getGrado(p){ return getSpec(p,'Grado'); }
+
+// Conteos por categoría / marca / envase / grado (sobre el catálogo completo)
+function countBy(matchFn){
+  return PRODUCTS.filter(matchFn).length;
 }
 
-/* ---------------- RENDER TABS + PRODUCTS ---------------- */
-const tabsEl = document.getElementById('tabs');
-const brandTabsEl = document.getElementById('brand-tabs');
-const promoStorePanel = document.getElementById('promo-store-panel');
-const allTabs = [{id:'all', name:'Todos'}, ...CATEGORIES];
-allTabs.forEach((t,i)=>{
-  tabsEl.innerHTML += `<button class="tab ${i===0?'active':''}" data-cat="${t.id}">${t.name}</button>`;
+// Envases (unidades) y Grados únicos, ordenados
+const ENVASES = [...new Set(PRODUCTS.map(p=>p.unit))].sort((a,b)=>a.localeCompare(b,'es'));
+const GRADOS = [...new Set(PRODUCTS.map(getGrado).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es',{numeric:true}));
+// Solo mostrar marcas que realmente tienen productos en el catálogo
+const BRANDS_WITH_PRODUCTS = BRANDS.filter(b => PRODUCTS.some(p=>p.brand===b.id));
+
+const SHOW_LIMIT = 6; // cuántos ítems se ven antes de "+ Mostrar más"
+
+let currentFilter = {cat:'all', brands:new Set(), envases:new Set(), grados:new Set()};
+
+/* ----- Render: lista de categorías (selección única) ----- */
+const catFilterList = document.getElementById('cat-filter-list');
+function renderCatFilterList(){
+  const allCount = PRODUCTS.length;
+  const rows = [{id:'all', name:'Todos', count:allCount}, ...CATEGORIES.map(c=>({
+    id:c.id, name:c.name, count:countBy(p=>p.cat===c.id)
+  }))].filter(r=>r.id==='all' || r.count>0);
+
+  catFilterList.innerHTML = rows.map(r=>`
+    <div class="filter-cat-item ${currentFilter.cat===r.id?'active':''}" data-cat="${r.id}">
+      <span>${r.name}</span>
+      <span class="filter-cat-count">${r.count}</span>
+    </div>
+  `).join('');
+}
+catFilterList.addEventListener('click', e=>{
+  const item = e.target.closest('.filter-cat-item');
+  if(item) setFilter({cat: item.dataset.cat});
 });
-const allBrandTabs = [{id:'all', name:'Todas'}, ...BRANDS];
-allBrandTabs.forEach((b,i)=>{
-  brandTabsEl.innerHTML += `<button class="tab ${i===0?'active':''}" data-brand="${b.id}">${b.name}</button>`;
+
+/* ----- Render genérico: listas de checkboxes (marca / envase / grado) ----- */
+function renderCheckList(containerId, showMoreBtnId, items, selectedSet, dataAttr, onToggle){
+  const container = document.getElementById(containerId);
+  const btn = document.getElementById(showMoreBtnId);
+  container.innerHTML = items.map((item,i)=>`
+    <div class="filter-check-item ${i>=SHOW_LIMIT?'hidden-extra':''}" data-idx="${i}">
+      <input type="checkbox" id="${containerId}-${i}" ${selectedSet.has(item.id)?'checked':''}>
+      <label for="${containerId}-${i}">${item.name}</label>
+      <span class="fc-count">${item.count}</span>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.filter-check-item').forEach((row,i)=>{
+    const cb = row.querySelector('input');
+    const toggle = ()=>{
+      const id = items[i].id;
+      if(selectedSet.has(id)) selectedSet.delete(id); else selectedSet.add(id);
+      onToggle();
+    };
+    cb.addEventListener('change', toggle);
+    row.querySelector('label').addEventListener('click', e=>{ e.preventDefault(); cb.checked=!cb.checked; toggle(); });
+  });
+
+  if(btn){
+    if(items.length<=SHOW_LIMIT){
+      btn.style.display = 'none';
+    } else {
+      btn.style.display = 'inline-block';
+      btn.textContent = '+ Mostrar más';
+      btn.onclick = ()=>{
+        const hidden = container.querySelectorAll('.hidden-extra');
+        const isExpanded = btn.dataset.expanded === '1';
+        if(!isExpanded){
+          hidden.forEach(el=>el.classList.remove('hidden-extra'));
+          btn.textContent = '− Mostrar menos';
+          btn.dataset.expanded = '1';
+        } else {
+          container.querySelectorAll('.filter-check-item').forEach((row,i)=>{
+            if(i>=SHOW_LIMIT) row.classList.add('hidden-extra');
+          });
+          btn.textContent = '+ Mostrar más';
+          btn.dataset.expanded = '0';
+        }
+      };
+    }
+  }
+}
+
+function renderBrandFilterList(){
+  const items = BRANDS_WITH_PRODUCTS.map(b=>({id:b.id, name:b.name, count:countBy(p=>p.brand===b.id)}));
+  renderCheckList('brand-filter-list','brand-show-more', items, currentFilter.brands, 'brand', ()=>{renderProducts(); syncAllFilterUI();});
+}
+function renderEnvaseFilterList(){
+  const items = ENVASES.map(u=>({id:u, name:u, count:countBy(p=>p.unit===u)}));
+  renderCheckList('envase-filter-list','envase-show-more', items, currentFilter.envases, 'envase', ()=>{renderProducts(); syncAllFilterUI();});
+}
+function renderGradoFilterList(){
+  const items = GRADOS.map(g=>({id:g, name:g, count:countBy(p=>getGrado(p)===g)}));
+  renderCheckList('grado-filter-list','grado-show-more', items, currentFilter.grados, 'grado', ()=>{renderProducts(); syncAllFilterUI();});
+  document.getElementById('grado-filter-block').style.display = items.length ? '' : 'none';
+}
+
+function syncAllFilterUI(){
+  renderCatFilterList();
+  renderActiveFilterChips();
+  updateMobileFilterCount();
+  document.querySelectorAll('.brand-chip').forEach(c=>c.classList.toggle('active', currentFilter.brands.has(c.dataset.brand)));
+}
+
+/* ----- Chips de filtros activos ----- */
+const activeFiltersEl = document.getElementById('active-filters');
+function renderActiveFilterChips(){
+  const chips = [];
+  if(currentFilter.cat!=='all'){
+    const c = CATEGORIES.find(c=>c.id===currentFilter.cat);
+    if(c) chips.push({label:c.name, onRemove:()=>setFilter({cat:'all'})});
+  }
+  currentFilter.brands.forEach(id=>{
+    const b = BRANDS.find(b=>b.id===id);
+    chips.push({label:b?b.name:id, onRemove:()=>{ currentFilter.brands.delete(id); renderProducts(); renderBrandFilterList(); syncAllFilterUI(); }});
+  });
+  currentFilter.envases.forEach(id=>{
+    chips.push({label:id, onRemove:()=>{ currentFilter.envases.delete(id); renderProducts(); renderEnvaseFilterList(); syncAllFilterUI(); }});
+  });
+  currentFilter.grados.forEach(id=>{
+    chips.push({label:id, onRemove:()=>{ currentFilter.grados.delete(id); renderProducts(); renderGradoFilterList(); syncAllFilterUI(); }});
+  });
+
+  activeFiltersEl.innerHTML = chips.map((c,i)=>`
+    <span class="active-filter-chip" data-i="${i}">${c.label}<button aria-label="Quitar filtro">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button></span>
+  `).join('');
+  activeFiltersEl.querySelectorAll('.active-filter-chip button').forEach((btn,i)=>{
+    btn.addEventListener('click', ()=>chips[i].onRemove());
+  });
+}
+
+function activeFilterCount(){
+  return (currentFilter.cat!=='all'?1:0) + currentFilter.brands.size + currentFilter.envases.size + currentFilter.grados.size;
+}
+function updateMobileFilterCount(){
+  const n = activeFilterCount();
+  const pill = document.getElementById('mobile-filter-count');
+  pill.style.display = n>0 ? 'flex' : 'none';
+  pill.textContent = n;
+}
+
+function setFilter(partial){
+  currentFilter = {...currentFilter, ...partial};
+  renderProducts();
+  syncAllFilterUI();
+}
+
+document.getElementById('clear-filters-btn').addEventListener('click', ()=>{
+  currentFilter = {cat:'all', brands:new Set(), envases:new Set(), grados:new Set()};
+  renderProducts();
+  renderCatFilterList();
+  renderBrandFilterList();
+  renderEnvaseFilterList();
+  renderGradoFilterList();
+  syncAllFilterUI();
 });
+
+/* ----- Drawer de filtros en móvil ----- */
+const filtersSidebar = document.getElementById('filters-sidebar');
+const filtersOverlay = document.getElementById('filters-overlay');
+function openFiltersDrawer(){ filtersSidebar.classList.add('open'); filtersOverlay.classList.add('open'); }
+function closeFiltersDrawer(){ filtersSidebar.classList.remove('open'); filtersOverlay.classList.remove('open'); }
+document.getElementById('mobile-filter-toggle').addEventListener('click', openFiltersDrawer);
+document.getElementById('filters-sidebar-close').addEventListener('click', closeFiltersDrawer);
+filtersOverlay.addEventListener('click', closeFiltersDrawer);
+
+// goToBrand (usado por la franja de marcas) ahora selecciona el checkbox de marca correspondiente
+function goToBrand(brandId){
+  document.getElementById('tienda').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{
+    currentFilter.brands = new Set([brandId]);
+    renderBrandFilterList();
+    renderProducts();
+    syncAllFilterUI();
+  }, 350);
+}
 
 function renderActivePromos(){
   promoStorePanel.innerHTML = ACTIVE_PROMOTIONS.map(p => `
@@ -1446,12 +1754,16 @@ function renderActivePromos(){
 }
 
 const prodGrid = document.getElementById('prod-grid');
-let currentFilter = {cat:'all', brand:'all'};
 
 function renderProducts(){
   let list = PRODUCTS;
   if(currentFilter.cat!=='all') list = list.filter(p=>p.cat===currentFilter.cat);
-  if(currentFilter.brand!=='all') list = list.filter(p=>p.brand===currentFilter.brand);
+  if(currentFilter.brands.size) list = list.filter(p=>currentFilter.brands.has(p.brand));
+  if(currentFilter.envases.size) list = list.filter(p=>currentFilter.envases.has(p.unit));
+  if(currentFilter.grados.size) list = list.filter(p=>{
+    const g = getGrado(p);
+    return g && currentFilter.grados.has(g);
+  });
 
   if(list.length===0){
     prodGrid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px 20px; color:var(--texto-suave);">
@@ -1491,23 +1803,26 @@ function renderProducts(){
   `).join('');
 }
 renderActivePromos();
+renderCatFilterList();
+renderBrandFilterList();
+renderEnvaseFilterList();
+renderGradoFilterList();
 renderProducts();
+renderActiveFilterChips();
+updateMobileFilterCount();
 
+// Compatibilidad: código externo (chat, footer, tarjetas de categoría) sigue
+// pudiendo llamar filterProducts({cat:'x'}) o filterProducts({brand:'x'});
+// se traduce al nuevo modelo de filtros del panel lateral.
 function filterProducts(partial){
-  currentFilter = {...currentFilter, ...partial};
-  document.querySelectorAll('#tabs .tab').forEach(t=>t.classList.toggle('active', t.dataset.cat===currentFilter.cat));
-  document.querySelectorAll('#brand-tabs .tab').forEach(t=>t.classList.toggle('active', t.dataset.brand===currentFilter.brand));
-  document.querySelectorAll('.brand-chip').forEach(c=>c.classList.toggle('active', c.dataset.brand===currentFilter.brand));
-  renderProducts();
+  if(partial && typeof partial === 'string'){ partial = {cat: partial}; }
+  if(partial && partial.brand){
+    currentFilter.brands = new Set([partial.brand]);
+    renderBrandFilterList();
+    partial = {...partial}; delete partial.brand;
+  }
+  setFilter(partial || {});
 }
-tabsEl.addEventListener('click', e=>{
-  const btn = e.target.closest('.tab');
-  if(btn) filterProducts({cat:btn.dataset.cat});
-});
-brandTabsEl.addEventListener('click', e=>{
-  const btn = e.target.closest('.tab');
-  if(btn) filterProducts({brand:btn.dataset.brand});
-});
 
 /* ---------------- PRODUCT / PROMO MODAL ---------------- */
 const modalOverlay = document.getElementById('modal-overlay');
