@@ -55,57 +55,15 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="wrap">
-    <div>
-      <div class="hero-badge">✔️ <b>+1,200 productos</b> con stock verificado en Lima</div>
-      <h1>Aceites, grasas<br>y repuestos <em>al punto justo.</em></h1>
-      <p>En ICC Negocios encuentras aceites de motor, grasas automotrices, filtros y bolsas de aire de las mejores marcas — con stock real, precios competitivos y despacho rápido a todo Lima.</p>
-      <div class="hero-actions">
-        <a href="tienda.html" class="btn btn-primary">Ver tienda online</a>
-        <a href="cotizar.html" class="btn btn-outline">Solicitar cotización</a>
-      </div>
-      <div class="hero-stats">
-        <div><b>+1,200</b><span>Productos en catálogo</span></div>
-        <div><b>24–48h</b><span>Despacho en Lima</span></div>
-        <div><b>+15</b><span>Marcas representadas</span></div>
-      </div>
-    </div>
-    <div class="gauge-wrap">
-      <div class="float-card f1">✔️ Stock verificado</div>
-      <div class="float-card f2">🚚 Delivery en Lima</div>
-      <div class="gauge">
-        <svg viewBox="0 0 300 300">
-          <defs>
-            <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#159de0"/>
-              <stop offset="100%" stop-color="#f5b400"/>
-            </linearGradient>
-          </defs>
-          <circle cx="150" cy="150" r="128" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="16"/>
-          <circle cx="150" cy="150" r="128" fill="none" stroke="url(#gaugeGrad)" stroke-width="16" stroke-linecap="round"
-                  stroke-dasharray="600" stroke-dashoffset="150" transform="rotate(-220 150 150)"/>
-          <g stroke="rgba(255,255,255,.5)" stroke-width="2">
-            <line x1="150" y1="30" x2="150" y2="46"/>
-            <line x1="150" y1="270" x2="150" y2="254" transform="rotate(180 150 150)"/>
-          </g>
-          <g transform="rotate(35 150 150)">
-            <line x1="150" y1="150" x2="150" y2="55" stroke="#ffd23f" stroke-width="5" stroke-linecap="round"/>
-          </g>
-          <circle cx="150" cy="150" r="14" fill="#ffd23f"/>
-          <circle cx="150" cy="150" r="6" fill="#07213f"/>
-        </svg>
-        <div class="gauge-label"><b>NIVEL DE CONFIANZA</b><span>Calidad garantizada en cada producto</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROMO CAROUSEL -->
+<!-- PROMO CAROUSEL (portada visual) -->
 <section class="promo-carousel" id="promo-carousel-section">
   <div class="carousel-viewport">
     <div class="carousel-track" id="carousel-track"></div>
+  </div>
+  <div class="carousel-shade"></div>
+  <div class="carousel-cta">
+    <a href="tienda.html" class="btn btn-primary" onclick="event.stopPropagation()">Ver tienda online</a>
+    <a href="cotizar.html" class="btn btn-outline" onclick="event.stopPropagation()">Solicitar cotización</a>
   </div>
   <button class="carousel-arrow left" id="carousel-prev" aria-label="Anterior">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -115,6 +73,24 @@
   </button>
   <div class="carousel-dots" id="carousel-dots"></div>
 </section>
+
+<!-- HERO STRIP: titular + stats, compacto -->
+<!-- <section class="hero-strip" id="inicio">
+  <div class="wrap">
+    <div class="hero-strip-inner">
+      <div class="hero-strip-text">
+        <h1>Aceites, grasas y repuestos <em>al punto justo.</em></h1>
+        <p>Aceites de motor, grasas automotrices, filtros y bolsas de aire de las mejores marcas — con stock real, precios competitivos y despacho rápido a todo Lima.</p>
+      </div>
+    </div>
+    <div class="hero-strip-stats">
+      <div><b>+1,200</b><span>Productos en catálogo</span></div>
+      <div><b>24–48h</b><span>Despacho en Lima</span></div>
+      <div><b>+15</b><span>Marcas representadas</span></div>
+      <div><b>✅</b><span>Stock verificado</span></div>
+    </div>
+  </div>
+</section> -->
 
 <!-- BRAND MARQUEE -->
 <section class="brands-band" id="marcas">
