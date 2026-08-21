@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICC Negocios S.A.C. | Lubricentro y Repuestos en Lima</title>
-<meta name="description" content="ICC Negocios S.A.C. — Aceites, grasas automotrices, filtros y bolsas de aire. Tienda online, cotizaciones y despacho en Lima.">
+<title>Cotizar | ICC Negocios S.A.C.</title>
+<meta name="description" content="Solicita una cotización de aceites, grasas, filtros y más para tu taller, flota o uso particular. Respuesta en menos de 24 horas.">
 <link rel="icon" href="assets/logo-icc.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -55,134 +55,54 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
+<!-- COTIZAR -->
+<section class="section quote-section" style="padding-top:56px;">
   <div class="wrap">
-    <div>
-      <div class="hero-badge">✔️ <b>+1,200 productos</b> con stock verificado en Lima</div>
-      <h1>Aceites, grasas<br>y repuestos <em>al punto justo.</em></h1>
-      <p>En ICC Negocios encuentras aceites de motor, grasas automotrices, filtros y bolsas de aire de las mejores marcas — con stock real, precios competitivos y despacho rápido a todo Lima.</p>
-      <div class="hero-actions">
-        <a href="tienda.html" class="btn btn-primary">Ver tienda online</a>
-        <a href="cotizar.html" class="btn btn-outline">Solicitar cotización</a>
+    <div class="quote-box">
+      <div>
+        <div class="eyebrow">Cotización rápida</div>
+        <h2>¿Necesitas un pedido grande o un producto específico?</h2>
+        <p>Cuéntanos qué necesitas — cantidad, marca o tipo de vehículo — y te enviamos tu cotización el mismo día.</p>
+        <ul class="quote-features">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Respuesta en menos de 24 horas</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Precios especiales por volumen</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Facturación electrónica disponible</li>
+        </ul>
+        <div style="margin-top:26px;">
+          <a href="https://wa.me/51933795267?text=Hola%20ICC%20Negocios%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n." target="_blank" class="btn btn-wsp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.17 3.02 14.7 2 12.04 2z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div><b>+1,200</b><span>Productos en catálogo</span></div>
-        <div><b>24–48h</b><span>Despacho en Lima</span></div>
-        <div><b>+15</b><span>Marcas representadas</span></div>
-      </div>
+      <form class="form" onsubmit="event.preventDefault(); sendQuoteForm();">
+        <div>
+          <label>Nombre completo</label>
+          <input type="text" id="q-name" placeholder="Ej. Juan Pérez" required>
+        </div>
+        <div>
+          <label>Teléfono / WhatsApp</label>
+          <input type="tel" id="q-phone" placeholder="Ej. 987 654 321" required>
+        </div>
+        <div>
+          <label>¿Qué producto necesitas?</label>
+          <select id="q-category">
+            <option value="">Selecciona una categoría</option>
+            <option>Aceites de motor</option>
+            <option>Grasas automotrices</option>
+            <option>Filtros</option>
+            <option>Bolsas de aire</option>
+            <option>Refrigerantes</option>
+            <option>Otro / no estoy seguro</option>
+          </select>
+        </div>
+        <div>
+          <label>Detalle de tu pedido</label>
+          <textarea id="q-msg" rows="3" placeholder="Marca, cantidad, modelo de vehículo, etc."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Enviar solicitud por WhatsApp</button>
+      </form>
     </div>
-    <div class="gauge-wrap">
-      <div class="float-card f1">✔️ Stock verificado</div>
-      <div class="float-card f2">🚚 Delivery en Lima</div>
-      <div class="gauge">
-        <svg viewBox="0 0 300 300">
-          <defs>
-            <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#159de0"/>
-              <stop offset="100%" stop-color="#f5b400"/>
-            </linearGradient>
-          </defs>
-          <circle cx="150" cy="150" r="128" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="16"/>
-          <circle cx="150" cy="150" r="128" fill="none" stroke="url(#gaugeGrad)" stroke-width="16" stroke-linecap="round"
-                  stroke-dasharray="600" stroke-dashoffset="150" transform="rotate(-220 150 150)"/>
-          <g stroke="rgba(255,255,255,.5)" stroke-width="2">
-            <line x1="150" y1="30" x2="150" y2="46"/>
-            <line x1="150" y1="270" x2="150" y2="254" transform="rotate(180 150 150)"/>
-          </g>
-          <g transform="rotate(35 150 150)">
-            <line x1="150" y1="150" x2="150" y2="55" stroke="#ffd23f" stroke-width="5" stroke-linecap="round"/>
-          </g>
-          <circle cx="150" cy="150" r="14" fill="#ffd23f"/>
-          <circle cx="150" cy="150" r="6" fill="#07213f"/>
-        </svg>
-        <div class="gauge-label"><b>NIVEL DE CONFIANZA</b><span>Calidad garantizada en cada producto</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROMO CAROUSEL -->
-<section class="promo-carousel" id="promo-carousel-section">
-  <div class="carousel-viewport">
-    <div class="carousel-track" id="carousel-track"></div>
-  </div>
-  <button class="carousel-arrow left" id="carousel-prev" aria-label="Anterior">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
-  <button class="carousel-arrow right" id="carousel-next" aria-label="Siguiente">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-  </button>
-  <div class="carousel-dots" id="carousel-dots"></div>
-</section>
-
-<!-- BRAND MARQUEE -->
-<section class="brands-band" id="marcas">
-  <div class="brands-head">
-    <div>
-      <div class="eyebrow">Marcas aliadas</div>
-      <h2 style="font-size:22px; margin-top:8px;">Trabajamos con las marcas líderes del rubro</h2>
-    </div>
-    <span style="font-size:13px; color:var(--texto-suave); font-weight:600;">Haz clic en una marca para ver sus productos en la tienda →</span>
-  </div>
-  <div class="marquee-mask">
-    <div class="marquee-track" id="marquee-track"></div>
-  </div>
-</section>
-
-<!-- CATEGORIES -->
-<section class="section" id="categorias">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Nuestras líneas</div>
-      <h2>Todo para el mantenimiento de tu vehículo</h2>
-      <p>Trabajamos con marcas reconocidas a nivel internacional, seleccionadas para talleres, lubricentros y flotas.</p>
-    </div>
-    <div class="cat-grid" id="cat-grid"></div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section class="why-band">
-  <div class="wrap section" style="padding-top:64px;">
-    <div class="section-head" style="max-width:560px;">
-      <div class="eyebrow" style="color:var(--amarillo-claro);">¿Por qué ICC Negocios?</div>
-      <h2 style="color:#fff;">Confianza que se nota en cada entrega</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <h4>Marcas líderes</h4>
-        <p>Trabajamos solo con proveedores certificados y productos 100% originales.</p>
-      </div>
-      <div class="why-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <h4>Despacho ágil</h4>
-        <p>Entregas en 24 a 48 horas en Lima Metropolitana y coordinación a provincias.</p>
-      </div>
-      <div class="why-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        <h4>Atención cercana</h4>
-        <p>Asesoría real, sin bots: te ayudamos a elegir el producto correcto para tu equipo.</p>
-      </div>
-      <div class="why-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
-        <h4>Precios para talleres</h4>
-        <p>Convenios y precios especiales por volumen para lubricentros y flotas.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIOS -->
-<section class="section testimonials" id="opiniones">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Opiniones de nuestros clientes</div>
-      <h2>Lo que dicen quienes ya confían en nosotros</h2>
-      <p>Estas son reseñas de ejemplo — las reemplazaremos por las opiniones reales de tus clientes (Google, Facebook, etc.).</p>
-    </div>
-    <div class="test-grid" id="test-grid"></div>
   </div>
 </section>
 
