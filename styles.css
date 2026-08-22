@@ -271,11 +271,17 @@
   }
   .carousel-cta .btn{box-shadow:0 10px 24px -8px rgba(0,0,0,.45);}
   @media (max-width:600px){
-    .carousel-cta{bottom:40px; flex-direction:column; align-items:stretch; max-width:calc(100% - 40px);}
-    .carousel-cta .btn{width:100%;}
+    .carousel-cta{
+      bottom:34px; flex-direction:row; flex-wrap:nowrap; align-items:stretch; gap:8px;
+      max-width:calc(100% - 24px);
+    }
+    .carousel-cta .btn{
+      flex:1 1 0; width:auto; padding:8px 10px; font-size:11.5px; gap:5px; line-height:1.2;
+      white-space:normal; text-align:center;
+    }
   }
  @media (max-width:720px){
-    .carousel-slide img{max-height:56vh;}
+    .carousel-slide img{max-height:48vh;}
     .carousel-caption{padding:24px 22px 34px;}
     .carousel-arrow{width:38px; height:38px;}
   }

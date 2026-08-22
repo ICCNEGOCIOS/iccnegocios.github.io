@@ -6,10 +6,10 @@ const CATEGORIES = [
   {id:'grasas', name:'Grasas', desc:'Litio y calcio, para todo uso', icon:'bucket'},
   {id:'refrigerantes', name:'Refrigerantes', desc:'Anticongelante 50/50', icon:'snow'},
   {id:'urea', name:'Urea Automotriz', desc:'Para sistemas SCR diésel', icon:'flask'},
-  {id:'filtros', name:'Filtros', desc:'Aceite, aire y combustible', icon:'filter'},
-  {id:'bolsas', name:'Bolsas de Aire', desc:'Suspensión neumática y compatibles', icon:'wind'},
-  {id:'valvulas', name:'Válvulas', desc:'Válvulas y componentes de admisión', icon:'valve'},
-  {id:'accesorios', name:'Repuestos Varios', desc:'Bujías, mangueras y más', icon:'wrench'},
+  // {id:'filtros', name:'Filtros', desc:'Aceite, aire y combustible', icon:'filter'},
+  // {id:'bolsas', name:'Bolsas de Aire', desc:'Suspensión neumática y compatibles', icon:'wind'},
+  // {id:'valvulas', name:'Válvulas', desc:'Válvulas y componentes de admisión', icon:'valve'},
+  // {id:'accesorios', name:'Repuestos Varios', desc:'Bujías, mangueras y más', icon:'wrench'},
 ];
 
 const ICONS = {
