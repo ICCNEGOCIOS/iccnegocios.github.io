@@ -15,9 +15,8 @@
     --sombra: 0 10px 30px -12px rgba(7,33,63,.25);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth; overflow-x:hidden;}
+  html{scroll-behavior:smooth;}
   body{
-    overflow-x:hidden;
     font-family:'Inter',sans-serif;
     color:var(--texto);
     background:var(--blanco);
