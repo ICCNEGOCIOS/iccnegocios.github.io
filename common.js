@@ -276,30 +276,62 @@ function renderActivePromos() {
 }
 
 /* ---------------- SEGUIMIENTO DE PEDIDO (demo) ---------------- */
-function trackOrder() {
+async function trackOrder() {
   const orderId = document.getElementById('t-order').value.trim();
   const email = document.getElementById('t-email').value.trim();
   const resultBox = document.getElementById('track-result');
+  const submitBtn = document.getElementById('t-submit');
   if (!orderId || !email) return;
 
-  const DEMO_STAGES = ['Confirmado', 'En preparación', 'En camino', 'Entregado'];
-  let hash = 0;
-  for (const ch of orderId) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
-  const stageIndex = hash % DEMO_STAGES.length;
+  // Si aún no se configuró la API (ver config.js), evitamos mostrar un error feo
+  // y en su lugar invitamos a consultar por WhatsApp.
+  if (typeof TRACKING_API_URL === 'undefined' || !TRACKING_API_URL) {
+    resultBox.innerHTML = trackWspFallback_(orderId, 'Aún no tenemos el sistema de rastreo conectado.');
+    return;
+  }
 
-  resultBox.innerHTML = `
-    <div class="track-timeline">
-      ${DEMO_STAGES.map((s, i) => `
-        <div class="t-item ${i <= stageIndex ? 'done' : ''}">
-          <div class="t-dot">${i <= stageIndex ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : ''}</div>
-          <div><h5>${s}</h5><span>${i <= stageIndex ? 'Actualizado' : 'Pendiente'}</span></div>
-        </div>
-      `).join('')}
-    </div>
-    <p style="font-size:11.5px; color:#8fabc6; margin-top:16px; line-height:1.6;">
-      * Vista de demostración para pedido <b style="color:#fff;">${orderId}</b>. Al integrarse con el sistema de ventas de ICC Negocios, este panel mostrará el estado real y actualizado de tu pedido.
-      ¿Prefieres consultar directo? <a href="https://wa.me/51933795267?text=${encodeURIComponent('Hola, quisiera consultar el estado de mi pedido ' + orderId)}" target="_blank" style="color:var(--amarillo-claro); font-weight:700;">Escríbenos por WhatsApp</a>.
-    </p>
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Buscando…'; }
+  resultBox.innerHTML = `<p style="font-size:13px; color:#a9c6e2; margin-top:16px;">Buscando tu pedido…</p>`;
+
+  try {
+    const url = `${TRACKING_API_URL}?codigo=${encodeURIComponent(orderId)}&correo=${encodeURIComponent(email)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('network');
+    const data = await res.json();
+
+    if (!data.found) {
+      resultBox.innerHTML = trackWspFallback_(orderId, 'No encontramos un pedido con ese código y correo. Verifica que estén escritos igual que en tu confirmación de compra.');
+      return;
+    }
+
+    const stages = data.stages || ['Confirmado', 'En preparación', 'En camino', 'Entregado'];
+    const stageIndex = typeof data.stageIndex === 'number' ? data.stageIndex : 0;
+
+    resultBox.innerHTML = `
+      ${data.nombre ? `<p style="font-size:13px; color:#dce8f5; margin-top:14px;">Hola <b style="color:#fff;">${data.nombre}</b>, este es el estado de tu pedido <b style="color:#fff;">${data.codigo}</b>:</p>` : ''}
+      <div class="track-timeline">
+        ${stages.map((s, i) => `
+          <div class="t-item ${i <= stageIndex ? 'done' : ''}">
+            <div class="t-dot">${i <= stageIndex ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : ''}</div>
+            <div><h5>${s}</h5><span>${i <= stageIndex ? 'Actualizado' : 'Pendiente'}</span></div>
+          </div>
+        `).join('')}
+      </div>
+      <p style="font-size:11.5px; color:#8fabc6; margin-top:16px; line-height:1.6;">
+        ${data.actualizado ? `Última actualización: ${data.actualizado}. ` : ''}¿Alguna duda sobre tu pedido? <a href="${wspLink('Hola, quisiera consultar sobre mi pedido ' + data.codigo)}" target="_blank" style="color:var(--amarillo-claro); font-weight:700;">Escríbenos por WhatsApp</a>.
+      </p>
+    `;
+  } catch (err) {
+    resultBox.innerHTML = trackWspFallback_(orderId, 'No pudimos conectar con el sistema de rastreo en este momento.');
+  } finally {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Buscar mi pedido'; }
+  }
+}
+
+function trackWspFallback_(orderId, message) {
+  return `
+    <p style="font-size:13px; color:#dce8f5; margin-top:16px; line-height:1.6;">${message}</p>
+    <a href="${wspLink('Hola, quisiera consultar el estado de mi pedido ' + orderId)}" target="_blank" class="btn btn-wsp" style="width:100%; margin-top:12px;">Consultar por WhatsApp</a>
   `;
 }
 
