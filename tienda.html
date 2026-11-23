@@ -61,7 +61,7 @@
     <div class="section-head">
       <div class="eyebrow">Tienda online</div>
       <h2>Catálogo completo</h2>
-      <p>Filtra por categoría, marca, envase o grado. Agrega productos al carrito y coordina tu compra o cotización directamente por WhatsApp.</p>
+      <p>Busca y filtra por categoría, marca, presentación, grado o norma API. Agrega productos al carrito y coordina tu compra o cotización directamente por WhatsApp.</p>
     </div>
 
     <div class="mobile-filter-bar">
@@ -86,12 +86,21 @@
             <div class="filter-cat-list" id="cat-filter-list"></div>
           </div>
           <div class="filter-block">
+            <div class="filter-block-title">Precio (S/)</div>
+            <div class="price-range">
+              <input type="number" id="price-min" min="0" inputmode="decimal" placeholder="Mín" aria-label="Precio mínimo">
+              <span>–</span>
+              <input type="number" id="price-max" min="0" inputmode="decimal" placeholder="Máx" aria-label="Precio máximo">
+              <button class="btn btn-dark btn-sm" id="price-apply">Filtrar</button>
+            </div>
+          </div>
+          <div class="filter-block" id="brand-filter-block">
             <div class="filter-block-title">Marca</div>
             <div class="filter-check-list" id="brand-filter-list"></div>
             <button class="show-more-btn" id="brand-show-more" data-target="brand-filter-list">+ Mostrar más</button>
           </div>
           <div class="filter-block" id="envase-filter-block">
-            <div class="filter-block-title">Envase</div>
+            <div class="filter-block-title">Presentación</div>
             <div class="filter-check-list" id="envase-filter-list"></div>
             <button class="show-more-btn" id="envase-show-more" data-target="envase-filter-list">+ Mostrar más</button>
           </div>
@@ -99,6 +108,11 @@
             <div class="filter-block-title">Grado</div>
             <div class="filter-check-list" id="grado-filter-list"></div>
             <button class="show-more-btn" id="grado-show-more" data-target="grado-filter-list">+ Mostrar más</button>
+          </div>
+          <div class="filter-block" id="api-filter-block">
+            <div class="filter-block-title">Norma API</div>
+            <div class="filter-check-list" id="api-filter-list"></div>
+            <button class="show-more-btn" id="api-show-more">+ Mostrar más</button>
           </div>
         </div>
         <div class="filters-sidebar-foot">
@@ -108,8 +122,31 @@
 
       <div class="shop-main">
         <div class="promo-store-panel" id="promo-store-panel"></div>
+        <div class="data-notice" id="data-notice" hidden></div>
+        <div class="shop-toolbar">
+          <label class="search-box">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+            <input type="search" id="search-input" placeholder="Busca por producto, marca, grado o código" aria-label="Buscar productos" autocomplete="off">
+          </label>
+          <div class="toolbar-selects">
+            <select id="sort-select" aria-label="Ordenar por">
+              <option value="rel">Orden del catálogo</option>
+              <option value="name">Nombre A–Z</option>
+              <option value="price-asc">Precio: menor a mayor</option>
+              <option value="price-desc">Precio: mayor a menor</option>
+            </select>
+            <select id="per-select" aria-label="Productos por página">
+              <option value="12">Mostrar 12</option>
+              <option value="24">Mostrar 24</option>
+              <option value="48">Mostrar 48</option>
+              <option value="0">Mostrar todo</option>
+            </select>
+          </div>
+        </div>
+        <div class="result-count" id="result-count" aria-live="polite"></div>
         <div class="active-filters" id="active-filters"></div>
         <div class="prod-grid" id="prod-grid"></div>
+        <nav class="pagination" id="pagination" aria-label="Paginación"></nav>
         <div class="center-cta">
           <a href="https://wa.me/51933795267?text=Hola%20ICC%20Negocios%2C%20quisiera%20ver%20el%20cat%C3%A1logo%20completo%20de%20productos." target="_blank" class="btn btn-wsp">Quiero ver el catálogo completo</a>
         </div>
@@ -230,7 +267,9 @@
 
 <div class="toast" id="toast"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span id="toast-msg">Producto agregado</span></div>
 
+<script src="config.js"></script>
 <script src="data.js"></script>
+<script src="sheets.js"></script>
 <script src="cart.js"></script>
 <script src="chat.js"></script>
 <script src="common.js"></script>
