@@ -29,3 +29,18 @@ La carpeta `assets/products/` está vacía en este paquete. Copia tus imágenes 
 (o el logo en `assets/logo-icc.jpeg` y marcas en `assets/brands/`).
 Si una imagen falta, la tarjeta muestra un ícono en vez de quedar en blanco.
 Recomendado: WebP o PNG de 800×800 px, menos de 100 KB cada una.
+
+## Ficha de producto (producto.html)
+Al hacer clic en un producto se abre su ficha: galería con zoom, presentaciones,
+entrega por ubicación, medios de pago, descripción y especificaciones.
+
+Columnas OPCIONALES que puedes agregar al final de cada pestaña:
+- `IMAGEN TRASERA`  → segunda foto (vista trasera). Aparece como miniatura "Trasera".
+- `DESCRIPCIÓN`     → texto de la ficha (separa párrafos con Enter dentro de la celda).
+- `FICHA TÉCNICA`   → enlace a un PDF; muestra el botón "Descargar ficha técnica".
+Si una presentación no tiene imagen, usa la de otra presentación del mismo producto.
+
+## Imágenes desde internet o Drive
+En IMAGEN puedes pegar: una ruta local (assets/products/x.png), un enlace https de internet
+o un enlace de Google Drive (compartido "cualquiera con el enlace"; la web lo convierte solo).
+Para llenarlas automáticamente usa `buscar-imagenes.gs` (instrucciones al inicio del archivo).

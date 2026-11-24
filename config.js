@@ -45,3 +45,23 @@ const SHEET_CONFIG = {
 
   CACHE_MINUTES: 10   // la web guarda la última lectura para abrir rápido
 };
+
+
+/* ============================================================
+   MEDIOS DE PAGO (ficha de producto)
+   Deja solo los que aceptas de verdad. Para agregar uno, quita las // de su línea.
+   Opciones: yape, plin, visa, mastercard, amex, diners, bcp, bbva, interbank, scotiabank, transfer
+   ============================================================ */
+const PAYMENT_METHODS = [
+  'yape',
+  'plin',
+  'visa',
+  // 'mastercard',
+  // 'amex',
+  // 'diners',
+  // 'bcp',
+  // 'bbva',
+  // 'interbank',
+  // 'scotiabank',
+  'transfer'
+];

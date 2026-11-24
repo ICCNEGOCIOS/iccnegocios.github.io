@@ -103,6 +103,16 @@ const titleUnit = u => u === 'IBC' ? 'IBC' : u.charAt(0) + u.slice(1).toLowerCas
 // "Galón 1 gal" y "Litro 1 L" son redundantes: se muestra solo la unidad
 const REDUNDANT = { 'GALÓN': '1 gal', LITRO: '1 L' };
 
+// Acepta rutas locales, URLs de internet y enlaces de Google Drive (los convierte a enlace directo)
+function normImg(u) {
+  u = String(u || '').trim().replace(/[<>"]/g, '');
+  if (!u) return '';
+  const d = u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=view&)?id=)([\w-]+)/);
+  if (d) return `https://lh3.googleusercontent.com/d/${d[1]}`;
+  return u.replace(/^http:\/\//i, 'https://');
+}
+const pick = (r, ...keys) => { for (const k of keys) if (r[k]) return r[k]; return ''; };
+
 const CAT_ICON = { aceites: 'drop', caja: 'drop', industrial: 'gear', grasas: 'bucket', refrigerantes: 'snow', urea: 'flask', aditivos: 'flask' };
 
 /* ---------- Imagen/descripcion por parecido de nombre (Catálogo_Referencia) ---------- */
@@ -156,11 +166,20 @@ function buildProducts(tabsData, refRows) {
         liters: liters || UNIT_LITERS[unitRaw] || 0,
         group: `${brand}|${noAccent(base.toUpperCase()).replace(/\s+/g, ' ')}`,
         grade, api,
-        desc: ((ref && ref.desc) || '').replace(/[<>]/g, '') || `${name}. Presentación ${label.toLowerCase()}.`,
+        desc: (pick(r, 'DESCRIPCIÓN', 'DESCRIPCION') || (ref && ref.desc) || '').replace(/[<>]/g, '') || `${name}. Presentación ${label.toLowerCase()}.`,
+        datasheet: normImg(pick(r, 'FICHA TÉCNICA', 'FICHA TECNICA', 'FICHA')),
         specs: [['Código', code], grade && ['Grado', grade], api && ['Norma', api], ['Marca', niceName(brand)], ['Presentación', label]].filter(Boolean),
-        image: r.IMAGEN || (ref && ref.image) || ''
+        image: normImg(r.IMAGEN || (ref && ref.image)),
+        image2: normImg(pick(r, 'IMAGEN 2', 'IMAGEN2', 'IMAGEN TRASERA', 'IMAGEN_TRASERA'))
       });
     });
+  });
+  // Si una presentación no tiene imagen, usa la de otra del mismo producto
+  const byGroup = {};
+  out.forEach(p => { (byGroup[p.group] = byGroup[p.group] || []).push(p); });
+  Object.values(byGroup).forEach(items => {
+    const img = (items.find(i => i.image) || {}).image, img2 = (items.find(i => i.image2) || {}).image2;
+    items.forEach(i => { if (!i.image && img) i.image = img; if (!i.image2 && img2) i.image2 = img2; });
   });
   return out;
 }
@@ -232,7 +251,7 @@ function applyProducts(list) {
 // Catálogo estático de data.js (respaldo): se completan los campos que usa la tienda nueva
 PRODUCTS.forEach(p => {
   const unit = (p.unit || '').toUpperCase();
-  p.code = p.code || p.id; p.group = p.group || p.id;
+  p.code = p.code || p.id; p.image2 = p.image2 || ''; p.group = p.group || p.id;
   p.unitType = p.unitType || titleUnit(unit.split(' ')[0] || 'UNIDAD');
   p.liters = p.liters ?? (UNIT_LITERS[unit] || 0);
   const g = (p.specs || []).find(([k]) => /grado/i.test(k));

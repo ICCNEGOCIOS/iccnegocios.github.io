@@ -94,6 +94,7 @@ function handleCatCardClick(e, catId) {
 
 /* ---------------- PRODUCT / PROMO MODAL (compartido) ---------------- */
 function openProductModal(id) {
+  if (typeof PRODUCTS !== 'undefined' && PRODUCTS.some(p => p.id === id)) { location.href = 'producto.html?id=' + encodeURIComponent(id); return; }
   const modalOverlay = document.getElementById('modal-overlay');
   const modalBox = document.getElementById('modal-box');
   if (!modalOverlay || !modalBox) return;

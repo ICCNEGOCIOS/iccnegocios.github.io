@@ -129,12 +129,12 @@ function cardHTML(g) {
   return `
   <article class="card" data-open="${esc(p.id)}">
     <div class="card-media">
-      <div class="prod-image-slot">${svgIcon(p.icon, 60)}${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()">` : ''}</div>
+      <div class="prod-image-slot">${svgIcon(p.icon, 60)}${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}</div>
       <div class="view-hint">Ver ficha técnica</div>
     </div>
     <div class="card-body">
       <div class="card-brand">${esc((BRANDS.find(b => b.id === p.brand) || { name: p.brand }).name)}</div>
-      <h3 class="card-title">${esc(p.name)}</h3>
+      <h3 class="card-title"><a href="producto.html?id=${encodeURIComponent(p.id)}">${esc(p.name)}</a></h3>
       ${chips}
       <div class="card-price">${p.price != null ? `<span class="price-now mono">${money(p.price)}</span>` : `<span class="price-now mono price-quote">Cotizar precio</span>`}</div>
       <div class="card-actions">
@@ -240,7 +240,7 @@ function bindEvents() {
     if (e.target.closest('.quote-btn')) return;
     if (e.target.closest('#empty-clear')) { clearAll(); return; }
     const card = e.target.closest('.card[data-open]');
-    if (card) openProductModal(card.dataset.open);
+    if (card) { if (e.target.closest('a')) return; location.href = 'producto.html?id=' + encodeURIComponent(card.dataset.open); }
   });
   $('pagination').addEventListener('click', e => {
     const b = e.target.closest('[data-page]'); if (!b) return;
