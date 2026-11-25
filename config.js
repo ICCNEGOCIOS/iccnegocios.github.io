@@ -65,3 +65,36 @@ const PAYMENT_METHODS = [
   // 'scotiabank',
   'transfer'
 ];
+
+
+/* ============================================================
+   COMPRA / CHECKOUT — todo lo que puedes ajustar sin tocar código
+   ============================================================ */
+const CHECKOUT = {
+  // Recargo por pagar con tarjeta (porcentaje sobre productos + envío)
+  CARD_FEE_PCT: 1,
+
+  // Yape: número y la imagen de tu código QR (guárdala en assets/yape-qr.png)
+  YAPE_NUMBER: "962223354",
+  YAPE_QR: "assets/yape-qr.png",
+  PLIN_NUMBER: "",            // opcional: si también recibes por Plin, escribe el número
+
+  // Cuentas para transferencia. Completa number/cci/holder; las que dejes
+  // sin número NO se muestran. Quita o agrega bancos (bcp, interbank, scotiabank, bbva).
+  BANK_ACCOUNTS: [
+    { bank: "bcp",       name: "BCP",       type: "Cuenta corriente soles", number: "", cci: "", holder: "" },
+    { bank: "interbank", name: "Interbank", type: "Cuenta corriente soles", number: "", cci: "", holder: "" }
+  ],
+
+  // Delivery en Lima y Callao: gratis desde FREE_FROM. Si pides menos,
+  // DELIVERY_FEE_LIMA es el costo (número). null = "por coordinar por WhatsApp".
+  FREE_FROM: 150,
+  DELIVERY_FEE_LIMA: null,
+
+  STORE: {
+    name: "ICC Negocios – La Victoria",
+    address: "Av. Aviación 1240, La Victoria, Lima – Perú",
+    hours: "Lun–Vie 9:00 a.m. – 6:00 p.m. · Sáb 9:00 a.m. – 1:00 p.m."
+  },
+  AGENCIAS: ["Olva Courier", "Shalom", "Cruz del Sur", "Otra (la indico en las referencias)"]
+};

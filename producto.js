@@ -5,21 +5,11 @@
    Requiere: config.js, data.js, sheets.js, cart.js, common.js
    ============================================================ */
 
-const $ = id => document.getElementById(id);
-const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const money = n => 'S/ ' + n.toFixed(2);
-const WSP = '51933795267';
 const FREE_LIMA_FROM = 150;       // misma regla que tu promo de delivery gratis
-const LOC_KEY = 'icc_location_v1';
-
-const DEPARTAMENTOS = ['Amazonas', 'Áncash', 'Apurímac', 'Arequipa', 'Ayacucho', 'Cajamarca', 'Callao', 'Cusco', 'Huancavelica', 'Huánuco', 'Ica', 'Junín', 'La Libertad', 'Lambayeque', 'Lima', 'Loreto', 'Madre de Dios', 'Moquegua', 'Pasco', 'Piura', 'Puno', 'San Martín', 'Tacna', 'Tumbes', 'Ucayali'];
-const DISTRITOS_LIMA = 'Ancón,Ate,Barranco,Breña,Carabayllo,Chaclacayo,Chorrillos,Cieneguilla,Comas,El Agustino,Independencia,Jesús María,La Molina,La Victoria,Lima (Cercado),Lince,Los Olivos,Lurigancho-Chosica,Lurín,Magdalena del Mar,Miraflores,Pachacámac,Pucusana,Pueblo Libre,Puente Piedra,Punta Hermosa,Punta Negra,Rímac,San Bartolo,San Borja,San Isidro,San Juan de Lurigancho,San Juan de Miraflores,San Luis,San Martín de Porres,San Miguel,Santa Anita,Santa María del Mar,Santa Rosa,Santiago de Surco,Surquillo,Villa El Salvador,Villa María del Triunfo'.split(',');
-const DISTRITOS_CALLAO = ['Callao', 'Bellavista', 'Carmen de la Legua Reynoso', 'La Perla', 'La Punta', 'Mi Perú', 'Ventanilla'];
 
 let product = null, group = [], qty = 1, imgIdx = 0, images = [];
-let loc = { dep: '', dist: '', method: '' };
-try { Object.assign(loc, JSON.parse(localStorage.getItem(LOC_KEY) || '{}')); } catch (e) {}
-const saveLoc = () => { try { localStorage.setItem(LOC_KEY, JSON.stringify(loc)); } catch (e) {} };
+let loc = getLoc();
+const persistLoc = () => saveLoc(loc);
 
 const inMetro = () => loc.dep === 'Lima' || loc.dep === 'Callao';
 const brandName = p => (BRANDS.find(b => b.id === p.brand) || { name: p.brand }).name;
@@ -136,33 +126,20 @@ function bindDelivery() {
   if (dep) {
     dep.onchange = e => { draft.dep = e.target.value; draft.dist = ''; $('pd-delivery').outerHTML = deliveryHTML(); bindDelivery(); $('loc-dep').focus(); };
     $('loc-dist')?.addEventListener('change', e => { draft.dist = e.target.value; });
-    $('loc-apply').onclick = () => { loc.dep = draft.dep; loc.dist = draft.dist; loc.method = ''; editingLoc = false; saveLoc(); refreshBuy(); };
+    $('loc-apply').onclick = () => { loc.dep = draft.dep; loc.dist = draft.dist; loc.method = ''; editingLoc = false; persistLoc(); refreshBuy(); };
     $('loc-cancel')?.addEventListener('click', () => { editingLoc = false; refreshDelivery(); });
   }
   $('loc-change')?.addEventListener('click', () => { draft = { dep: loc.dep, dist: loc.dist }; editingLoc = true; refreshDelivery(); });
-  document.querySelectorAll('.deliv-tile').forEach(t => t.onclick = () => { loc.method = t.dataset.m; saveLoc(); refreshDelivery(); $('pd-wsp').href = `https://wa.me/${WSP}?text=${waMessage()}`; });
+  document.querySelectorAll('.deliv-tile').forEach(t => t.onclick = () => { loc.method = t.dataset.m; persistLoc(); refreshDelivery(); $('pd-wsp').href = `https://wa.me/${WSP}?text=${waMessage()}`; });
 }
 function refreshDelivery() { $('pd-delivery').outerHTML = deliveryHTML(); bindDelivery(); }
 
 /* ---------- Medios de pago ---------- */
-const PAY = {
-  yape: ['<span style="background:#742284;color:#fff;font-weight:800;font-size:15px;letter-spacing:-.02em">yape</span>', 'Yape'],
-  plin: ['<span style="background:#00d1d1;color:#fff;font-weight:800;font-size:15px">plin</span>', 'Plin'],
-  visa: ['<span style="background:#fff;color:#1a1f71;font-weight:900;font-style:italic;font-size:17px;border:1px solid #d6dde7">VISA</span>', 'Visa'],
-  mastercard: ['<span style="background:#2f3b4f"><svg width="42" height="26" viewBox="0 0 42 26"><circle cx="15" cy="13" r="10" fill="#eb001b"/><circle cx="27" cy="13" r="10" fill="#f79e1b"/><path d="M21 5.3a10 10 0 0 1 0 15.4 10 10 0 0 1 0-15.4z" fill="#ff5f00"/></svg></span>', 'Mastercard'],
-  amex: ['<span style="background:#1f72cd;color:#fff;font-weight:800;font-size:11px;line-height:1.05;text-align:center">AMERICAN<br>EXPRESS</span>', 'American Express'],
-  diners: ['<span style="background:#0079be"><svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="11" fill="#fff"/><path d="M9 14a5 5 0 0 1 4-4.9v9.8A5 5 0 0 1 9 14zm10 0a5 5 0 0 1-4 4.9V9.1a5 5 0 0 1 4 4.9z" fill="#0079be"/></svg></span>', 'Diners Club'],
-  bcp: ['<span style="background:#0b4ea2;color:#fff;font-weight:800;font-style:italic;font-size:15px">BCP</span>', 'BCP'],
-  bbva: ['<span style="background:#072146;color:#fff;font-weight:800;font-size:15px">BBVA</span>', 'BBVA'],
-  interbank: ['<span style="background:#18a85c;color:#fff;font-weight:800;font-size:12px">interbank</span>', 'Interbank'],
-  scotiabank: ['<span style="background:#ec111a;color:#fff;font-weight:800;font-size:11px">Scotiabank</span>', 'Scotiabank'],
-  transfer: ['<span style="background:#e9f1fb;color:#0b3b6f;font-weight:800;font-size:12px;gap:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 21h18"/></svg>Transferencia</span>', 'Transferencia bancaria']
-};
 function paymentHTML() {
   const list = (typeof PAYMENT_METHODS !== 'undefined' ? PAYMENT_METHODS : ['yape', 'plin', 'visa', 'transfer']).filter(k => PAY[k]);
   return `<div class="pd-box pd-pay">
     <h3>Te ofrecemos los siguientes métodos de pago</h3>
-    <div class="pay-grid">${list.map(k => `<div class="pay-logo" title="${PAY[k][1]}" role="img" aria-label="${PAY[k][1]}">${PAY[k][0]}</div>`).join('')}</div>
+    <div class="pay-grid">${payLogos(list)}</div>
     <p class="pd-hint">Coordinas el pago con nuestro asesor por WhatsApp al confirmar tu pedido.</p>
   </div>`;
 }
@@ -232,22 +209,53 @@ function render() {
     <div class="pd-tab" id="t-spec"><table class="pd-specs">${specs.map(([k, v]) => `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}</table></div>
   </section>
 
-  <section class="pd-related" id="pd-related"></section>`;
+  <section class="pd-related" id="pd-related"></section>
+
+  <div class="pd-sticky" id="pd-sticky">
+    <div class="wrap pd-sticky-in">
+      <div class="pd-sticky-thumb">${svgIcon(p.icon, 30)}${p.image ? `<img src="${esc(p.image)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}</div>
+      <div class="pd-sticky-name">${esc(p.name)}<small>${esc(p.unit)}${quote ? '' : ' · ' + money(p.price)}</small></div>
+      <div class="pd-qty pd-qty-s"><button id="s-minus" aria-label="Menos">−</button><input id="s-val" type="number" min="1" value="${qty}" aria-label="Cantidad"><button id="s-plus" aria-label="Más">+</button></div>
+      ${quote ? `<a class="pd-sticky-buy" target="_blank" rel="noopener" href="https://wa.me/${WSP}?text=${waMessage()}">Cotizar</a>` : '<button class="pd-sticky-buy" id="s-buy">Comprar 🛒</button>'}
+    </div>
+  </div>`;
 
   document.title = `${p.name} ${p.unit} | ICC Negocios`;
   bindZoom(); bindDelivery(); renderRelated();
 
   document.querySelectorAll('.pd-var').forEach(b => b.onclick = () => selectVariant(b.dataset.id));
-  const val = $('q-val');
-  const setQty = n => { qty = Math.max(1, Math.min(999, n || 1)); val.value = qty; refreshBuy(); };
-  $('q-minus').onclick = () => setQty(qty - 1); $('q-plus').onclick = () => setQty(qty + 1); val.onchange = () => setQty(parseInt(val.value, 10));
-  $('pd-add')?.addEventListener('click', () => { addToCart(p.id); if (qty > 1) changeQty(p.id, qty - 1); });
+  const setQty = n => { qty = Math.max(1, Math.min(999, n || 1)); $('q-val').value = qty; $('s-val').value = qty; refreshBuy(); };
+  $('q-minus').onclick = () => setQty(qty - 1); $('q-plus').onclick = () => setQty(qty + 1);
+  $('s-minus').onclick = () => setQty(qty - 1); $('s-plus').onclick = () => setQty(qty + 1);
+  $('q-val').onchange = e => setQty(parseInt(e.target.value, 10)); $('s-val').onchange = e => setQty(parseInt(e.target.value, 10));
+  const buy = () => { addToCart(p.id, qty, true); showAdded(p, qty); };
+  $('pd-add')?.addEventListener('click', buy); $('s-buy')?.addEventListener('click', buy);
   document.querySelectorAll('.pd-tabbar button').forEach(b => b.onclick = () => {
     document.querySelectorAll('.pd-tabbar button, .pd-tab').forEach(x => x.classList.remove('on'));
     b.classList.add('on'); $(b.dataset.tab).classList.add('on');
   });
 }
 function refreshBuy() { refreshDelivery(); $('pd-wsp').href = `https://wa.me/${WSP}?text=${waMessage()}`; }
+
+/* ---------- Ventana "Producto añadido" ---------- */
+function showAdded(p, n) {
+  let m = $('added-modal');
+  if (!m) { m = document.createElement('div'); m.id = 'added-modal'; m.className = 'ck-modal'; document.body.appendChild(m); }
+  const total = Object.values(cart).reduce((a, b) => a + b, 0);
+  m.innerHTML = `<div class="ck-modal-card added-card" role="dialog" aria-modal="true" aria-label="Producto añadido">
+    <div class="added-head"><span class="added-ok">✓</span><b>Producto añadido con éxito al carrito</b><button class="ck-x" id="added-x" aria-label="Cerrar">×</button></div>
+    <div class="added-body">
+      <div class="added-img">${svgIcon(p.icon, 48)}${p.image ? `<img src="${esc(p.image)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}<span class="added-badge">${n}</span></div>
+      <div><h4>${esc(p.name)}</h4><div class="added-pres"><b>Presentación:</b> ${esc(p.unit)}</div><div class="added-price">${money(p.price * n)}</div></div>
+    </div>
+    <div class="added-actions"><button class="added-more" id="added-more">🛍 Ver más productos</button><a class="ck-btn" href="carrito.html">Ir a mi carrito (${total})</a></div>
+  </div>`;
+  m.classList.add('open');
+  const close = () => m.classList.remove('open');
+  $('added-x').onclick = close; m.onclick = e => { if (e.target === m) close(); };
+  $('added-more').onclick = () => { close(); location.href = 'tienda.html'; };
+  if (typeof updateCartUI === 'function') updateCartUI();
+}
 
 function selectVariant(id) {
   product = group.find(v => v.id === id) || product;

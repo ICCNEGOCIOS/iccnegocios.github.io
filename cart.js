@@ -22,13 +22,13 @@ function saveCart() {
   } catch (e) { /* almacenamiento no disponible, se ignora */ }
 }
 
-function addToCart(id) {
+function addToCart(id, n = 1, silent = false) {
   const product = PRODUCTS.find(p => p.id === id);
   if (!product) return;
-  cart[id] = (cart[id] || 0) + 1;
+  cart[id] = (cart[id] || 0) + Math.max(1, n | 0);
   saveCart();
   updateCartUI();
-  showToast(product.name + ' agregado al carrito');
+  if (!silent && typeof showToast === 'function') showToast(product.name + ' agregado al carrito');
 }
 function changeQty(id, delta) {
   if (!cart[id]) return;
@@ -98,7 +98,7 @@ function updateCartUI() {
   const msgLines = entries.map(({ product, qty }) => `• ${qty}x ${product.name} (${product.brand}, ${product.unit}) — ${product.price !== null ? 'S/ ' + (product.price * qty).toFixed(2) : 'precio a confirmar'}`);
   const fullMsg = `Hola ICC Negocios, quiero coordinar este pedido:%0A%0A${msgLines.join('%0A')}%0A%0ASubtotal con precio fijo: S/ ${total.toFixed(2)}${quoteItems.length ? '%0A(Hay ' + quoteItems.length + ' producto(s) pendiente(s) de cotizar)' : ''}`;
   const checkoutBtn = document.getElementById('checkout-wsp');
-  if (checkoutBtn) checkoutBtn.href = `https://wa.me/51933795267?text=${fullMsg}`;
+  if (checkoutBtn) { checkoutBtn.href = 'carrito.html'; checkoutBtn.removeAttribute('target'); checkoutBtn.textContent = 'Ir a pagar'; }
 }
 
 /* ---------------- DRAWER TOGGLE ---------------- */

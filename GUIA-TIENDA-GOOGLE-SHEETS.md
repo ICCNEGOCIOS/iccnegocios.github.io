@@ -43,4 +43,21 @@ Si una presentación no tiene imagen, usa la de otra presentación del mismo pro
 ## Imágenes desde internet o Drive
 En IMAGEN puedes pegar: una ruta local (assets/products/x.png), un enlace https de internet
 o un enlace de Google Drive (compartido "cualquiera con el enlace"; la web lo convierte solo).
-Para llenarlas automáticamente usa `buscar-imagenes.gs` (instrucciones al inicio del archivo).
+Para llenarlas automáticamente usa `buscar-imagenes.gs` (Serper.dev, gratis y sin tarjeta; instrucciones al inicio del archivo).
+
+## Flujo de compra (carrito → pedido → pago → constancia → confirmación)
+Páginas: `carrito.html`, `pedido.html`, `gracias.html` (lógica en `checkout.js`).
+1. Ficha: barra fija "Comprar" → ventana "Producto añadido" → "Ir a mi carrito".
+2. Carrito: precio con tarjeta (+1 %) y precio con transferencia/Yape.
+3. Pedido: comprobante (boleta/factura) → identificación (DNI/RUC) → entrega → método de pago.
+4. Pago: Yape (QR + número), transferencia (tus cuentas) o tarjeta (enlace por WhatsApp).
+5. Constancia: el cliente sube su captura; queda en tu Drive ("Constancias ICC").
+6. Confirmación con número de pedido y estado.
+
+### Lo que debes configurar
+- `config.js` → `CHECKOUT`: número de Yape, cuentas bancarias, costo de delivery, recargo de tarjeta.
+- Sube tu QR de Yape como `assets/yape-qr.png`.
+- Reemplaza el código de tu Apps Script por `apps-script-tienda.gs` (misma URL, "Nueva versión"):
+  registra pedidos en la pestaña "Pedidos", guarda constancias y responde al rastreo.
+- Después pega esa misma URL en `TRACKING_API_URL` (config.js) para que "Rastrear Pedido" funcione con los pedidos nuevos.
+- Opcional: token de apis.net.pe en `API_TOKEN` del script para validar DNI/RUC.
